@@ -1,14 +1,14 @@
-/* ═══════════════════════════════════════
-   Dr. Cashless — App JavaScript
-═══════════════════════════════════════ */
+/* ═══════════════════════════════
+   Dr. Cashless — app.js
+═══════════════════════════════ */
 
-// ── Drawer (Side Nav) ──────────────────
+// ── Drawer ─────────────────────
 const menuBtn  = document.getElementById('menuBtn');
 const closeBtn = document.getElementById('closeBtn');
 const drawer   = document.getElementById('drawer');
 const overlay  = document.getElementById('overlay');
 
-function openDrawer() {
+function openDrawer()  {
   drawer.classList.add('open');
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -22,108 +22,57 @@ function closeDrawer() {
 menuBtn.addEventListener('click', openDrawer);
 closeBtn.addEventListener('click', closeDrawer);
 overlay.addEventListener('click', closeDrawer);
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
-// Close drawer when a nav link is clicked
-drawer.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', closeDrawer);
-});
+// ── Hospital Slider ─────────────
+const track   = document.getElementById('sliderTrack');
+const dots    = document.querySelectorAll('.sdot');
+const slides  = track ? Array.from(track.children) : [];
+let cur = 0, timer = null;
 
-// ── Hospital Slider ────────────────────
-const track     = document.getElementById('sliderTrack');
-const dots      = document.querySelectorAll('.dot');
-const prevBtn   = document.getElementById('prevSlide');
-const nextBtn   = document.getElementById('nextSlide');
-const slides    = track ? track.children : [];
-let current     = 0;
-let autoTimer   = null;
-
-function goToSlide(index) {
-  if (!track || slides.length === 0) return;
-  current = (index + slides.length) % slides.length;
-  track.style.transform = `translateX(-${current * 100}%)`;
-  dots.forEach((d, i) => d.classList.toggle('active', i === current));
+function goTo(idx) {
+  cur = (idx + slides.length) % slides.length;
+  track.style.transform = `translateX(-${cur * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === cur));
 }
 
-if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(current - 1); resetAuto(); });
-if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(current + 1); resetAuto(); });
+dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.idx); resetTimer(); }));
 
-dots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    goToSlide(parseInt(dot.dataset.i, 10));
-    resetAuto();
-  });
-});
-
-function startAuto() {
-  autoTimer = setInterval(() => goToSlide(current + 1), 4500);
-}
-function resetAuto() {
-  clearInterval(autoTimer);
-  startAuto();
-}
-
-// Touch / swipe on slider
-let touchStartX = 0;
+// Touch swipe
+let tx = 0;
 if (track) {
-  track.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-  }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      goToSlide(diff > 0 ? current + 1 : current - 1);
-      resetAuto();
-    }
+  track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const dx = tx - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 48) { goTo(cur + (dx > 0 ? 1 : -1)); resetTimer(); }
   });
 }
 
-// Start auto-play
-startAuto();
+function startTimer() { timer = setInterval(() => goTo(cur + 1), 4500); }
+function resetTimer() { clearInterval(timer); startTimer(); }
+startTimer();
 
-// ── Smooth active nav highlight on scroll ──
-const sections = document.querySelectorAll('section[id], main[id]');
-const navLinks  = document.querySelectorAll('.drawer-nav a');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      navLinks.forEach(link => {
-        link.parentElement.classList.toggle(
-          'active',
-          link.getAttribute('href') === `#${entry.target.id}`
-        );
-      });
+// ── Scroll-triggered entrance ───
+const animEls = document.querySelectorAll('.svc-row-card, .step-card, .hero-stat-card, .hosp-card');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity  = '1';
+      e.target.style.transform = 'translateY(0)';
+      io.unobserve(e.target);
     }
   });
-}, { threshold: 0.4 });
+}, { threshold: 0.12 });
 
-sections.forEach(sec => observer.observe(sec));
-
-// ── Header shadow on scroll ──
-const header = document.querySelector('.header');
-window.addEventListener('scroll', () => {
-  if (header) {
-    header.style.boxShadow = window.scrollY > 10
-      ? '0 2px 16px rgba(0,0,0,0.08)'
-      : 'none';
-  }
-}, { passive: true });
-
-// ── Animate service cards on scroll ──
-const cards = document.querySelectorAll('.svc-card, .step, .hero-stat-card');
-const cardObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-      cardObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-cards.forEach((card, i) => {
-  card.style.opacity = '0';
-  card.style.transform = 'translateY(20px)';
-  card.style.transition = `opacity 0.4s ease ${i * 0.07}s, transform 0.4s ease ${i * 0.07}s`;
-  cardObserver.observe(card);
+animEls.forEach((el, i) => {
+  el.style.opacity   = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = `opacity .4s ease ${i * 0.06}s, transform .4s ease ${i * 0.06}s`;
+  io.observe(el);
 });
+
+// ── Header shadow on scroll ─────
+const hdr = document.querySelector('.header');
+window.addEventListener('scroll', () => {
+  if (hdr) hdr.style.boxShadow = scrollY > 6 ? '0 2px 14px rgba(0,0,0,.07)' : 'none';
+}, { passive: true });

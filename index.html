@@ -6,40 +6,46 @@
   <title>Dr. Cashless — Health Made Simple</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600;9..40,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ═══ SIDE DRAWER ═══ -->
+  <!-- ═══ DRAWER OVERLAY ═══ -->
   <div class="overlay" id="overlay"></div>
+
+  <!-- ═══ SIDE DRAWER ═══ -->
   <nav class="drawer" id="drawer" aria-label="Main navigation">
     <div class="drawer-head">
       <div class="drawer-brand">
-        <svg class="drawer-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 35C20 35 6 26 6 15.5C6 11 9.7 7 14.5 7C17.1 7 19.4 8.3 20 9.5C20.6 8.3 22.9 7 25.5 7C30.3 7 34 11 34 15.5C34 26 20 35 20 35Z" fill="#F25C08"/>
-          <path d="M17 18v-4h6v4h4v6h-4v4h-6v-4h-4v-6h4z" fill="white"/>
-        </svg>
-        <span>Dr. Cashless</span>
+        <div class="logo-mark">
+          <i class="fas fa-heart-pulse"></i>
+        </div>
+        <div>
+          <div class="drawer-brand-name">Dr. Cashless</div>
+          <div class="drawer-brand-tag">Health Made Simple</div>
+        </div>
       </div>
       <button class="close-btn" id="closeBtn" aria-label="Close menu">
-        <i class="fas fa-times"></i>
+        <i class="fas fa-xmark"></i>
       </button>
     </div>
     <ul class="drawer-nav">
-      <li><a href="#home"><i class="fas fa-house"></i>Home</a></li>
-      <li><a href="#services"><i class="fas fa-stethoscope"></i>Services</a></li>
-      <li><a href="#cashless-section"><i class="fas fa-hospital"></i>Cashless Facility</a></li>
-      <li><a href="#reimbursement-section"><i class="fas fa-money-bill-wave"></i>Reimbursement</a></li>
-      <li><a href="#insurance-section"><i class="fas fa-shield-halved"></i>Insurance Coverage</a></li>
-      <li><a href="#opd-section"><i class="fas fa-calendar-check"></i>Book OPD</a></li>
-      <li><a href="#contact"><i class="fas fa-phone"></i>Contact Us</a></li>
+      <li class="active"><a href="#home"><i class="fas fa-house"></i><span>Home</span></a></li>
+      <li><a href="#cashless"><i class="fas fa-hospital"></i><span>Cashless Facility</span></a></li>
+      <li><a href="#reimbursement"><i class="fas fa-money-bill-transfer"></i><span>Reimbursement</span></a></li>
+      <li><a href="#insurance"><i class="fas fa-shield-halved"></i><span>Insurance Coverage</span></a></li>
+      <li><a href="#opd"><i class="fas fa-calendar-check"></i><span>Book OPD</span></a></li>
+      <li><a href="#how-it-works"><i class="fas fa-list-check"></i><span>How It Works</span></a></li>
+      <li><a href="#contact"><i class="fas fa-phone"></i><span>Contact Us</span></a></li>
     </ul>
     <div class="drawer-footer">
-      <a href="tel:+919026320900" class="drawer-cta">
-        <i class="fas fa-phone"></i> Get a Call
+      <a href="tel:+919026320900" class="drawer-call-btn">
+        <span class="drawer-call-icon"><i class="fas fa-phone"></i></span>
+        Get a Call Back
       </a>
+      <p class="drawer-note">Free · No Charges · 24/7</p>
     </div>
   </nav>
 
@@ -50,307 +56,271 @@
         <span></span><span></span><span></span>
       </button>
       <a href="#home" class="brand">
-        <svg class="brand-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 35C20 35 6 26 6 15.5C6 11 9.7 7 14.5 7C17.1 7 19.4 8.3 20 9.5C20.6 8.3 22.9 7 25.5 7C30.3 7 34 11 34 15.5C34 26 20 35 20 35Z" fill="#F25C08"/>
-          <path d="M17 18v-4h6v4h4v6h-4v4h-6v-4h-4v-6h4z" fill="white"/>
-        </svg>
-        <span class="brand-text">Dr. <strong>Cashless</strong></span>
+        <div class="brand-mark"><i class="fas fa-heart-pulse"></i></div>
+        <span class="brand-name">Dr. <strong>Cashless</strong></span>
       </a>
-      <a href="tel:+919026320900" class="header-cta" aria-label="Call us">
+      <a href="tel:+919026320900" class="header-phone-btn" aria-label="Call us">
         <i class="fas fa-phone"></i>
       </a>
     </div>
-    <div class="header-bar"></div>
+    <div class="header-orange-bar"></div>
   </header>
 
   <main>
 
-    <!-- ═══ HERO ═══ -->
-    <section class="hero">
-      <div class="hero-inner">
-        <p class="hero-tag">India's #1 Cashless Health Partner</p>
-        <h2 class="hero-headline">Health made<br /><em>simple.</em></h2>
-        <p class="hero-sub">Select your insurance. Tell us your condition.<br />Find the nearest cashless hospital.</p>
-        <a href="tel:+919026320900" class="btn-primary">
-          <span class="btn-icon"><i class="fas fa-phone"></i></span>
-          Get a Free Call
-        </a>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-stat-card">
-          <span class="stat-num">500+</span>
-          <span class="stat-label">Empanelled Hospitals</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="stat-num">50K+</span>
-          <span class="stat-label">Claims Settled</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="stat-num">24/7</span>
-          <span class="stat-label">Support Available</span>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ HOSPITAL AD SLIDER ═══ -->
-    <section class="slider-section">
-      <div class="section-label">Featured Hospitals</div>
-      <div class="slider-outer">
+    <section class="slider-section" aria-label="Featured hospitals">
+      <div class="slider-viewport" id="sliderViewport">
         <div class="slider-track" id="sliderTrack">
 
-          <!-- Slide 1 -->
-          <article class="hospital-slide">
-            <div class="slide-accent-bar"></div>
-            <div class="slide-body">
-              <div class="slide-left">
-                <div class="slide-hosp-meta">
-                  <div class="slide-hosp-icon"><i class="fas fa-plus"></i></div>
+          <!-- Slide 1 — MAXCARE SPARSH -->
+          <article class="hosp-card">
+            <div class="hosp-top-bar"></div>
+            <div class="hosp-content">
+              <div class="hosp-col-left">
+                <div class="hosp-identity">
+                  <div class="hosp-logo-box"><i class="fas fa-plus"></i></div>
                   <div>
-                    <div class="slide-hosp-name">MAXCARE SPARSH</div>
-                    <div class="slide-hosp-type">Super Speciality Hospital</div>
+                    <div class="hosp-name">MAXCARE SPARSH</div>
+                    <div class="hosp-type">Super Speciality Hospital</div>
                   </div>
                 </div>
-                <div class="slide-dept">NICU</div>
-                <div class="slide-dept-full">Neonatal Intensive Care Unit</div>
-                <div class="slide-tag">FACILITIES</div>
-                <ul class="slide-list">
+                <div class="hosp-dept">NICU</div>
+                <div class="hosp-dept-long">Neonatal Intensive Care Unit</div>
+                <div class="hosp-facilities-label">FACILITIES</div>
+                <ul class="hosp-facilities">
                   <li>Ventilator / HFOV / CPAP / HHFNC</li>
                   <li>Central Monitoring System</li>
                   <li>Transport Ventilator</li>
                   <li>Miracradle for Therapeutic Hypothermia</li>
                   <li>Bedside 2D-Echo and USG Facility</li>
                 </ul>
-                <a href="tel:+919026320900" class="slide-cta">Consult Now</a>
+                <a href="tel:+919026320900" class="hosp-cta-btn">Consult Now</a>
               </div>
-              <div class="slide-right">
-                <div class="doctor-avatar"><i class="fas fa-user-doctor"></i></div>
-                <div class="doctor-info">
-                  <div class="doctor-name">Dr. Abhishek Jain</div>
-                  <div class="doctor-deg">MBBS, DCH — KGMU Lko. <em>(Gold Medalist)</em></div>
-                </div>
+              <div class="hosp-col-right">
+                <div class="doctor-circle"><i class="fas fa-user-doctor"></i></div>
+                <div class="doctor-name-text">Dr. Abhishek Jain</div>
+                <div class="doctor-quals">MBBS, DCH (KGMU, Lko.)<br/><em>Gold Medalist</em></div>
               </div>
             </div>
-            <div class="slide-foot">
-              <span><i class="fas fa-location-dot"></i> Near Bharat Petrol Pump, Shivaji Nagar Rd, Jhansi</span>
-              <span><i class="fas fa-phone"></i> +91 90263 20900</span>
+            <div class="hosp-footer">
+              <span><i class="fas fa-location-dot"></i>Near Bharat Petrol Pump, Shivaji Nagar Rd, Jhansi</span>
+              <span><i class="fas fa-phone"></i>+91 90263 20900 / 0510-2441111</span>
             </div>
           </article>
 
-          <!-- Slide 2 -->
-          <article class="hospital-slide">
-            <div class="slide-accent-bar"></div>
-            <div class="slide-body">
-              <div class="slide-left">
-                <div class="slide-hosp-meta">
-                  <div class="slide-hosp-icon"><i class="fas fa-heart-pulse"></i></div>
+          <!-- Slide 2 — CITY CARE -->
+          <article class="hosp-card">
+            <div class="hosp-top-bar"></div>
+            <div class="hosp-content">
+              <div class="hosp-col-left">
+                <div class="hosp-identity">
+                  <div class="hosp-logo-box"><i class="fas fa-heart-pulse"></i></div>
                   <div>
-                    <div class="slide-hosp-name">CITY CARE HOSPITAL</div>
-                    <div class="slide-hosp-type">Multi Speciality Hospital</div>
+                    <div class="hosp-name">CITY CARE HOSPITAL</div>
+                    <div class="hosp-type">Multi Speciality Hospital</div>
                   </div>
                 </div>
-                <div class="slide-dept">CARDIOLOGY</div>
-                <div class="slide-dept-full">Heart Care Unit</div>
-                <div class="slide-tag">FACILITIES</div>
-                <ul class="slide-list">
+                <div class="hosp-dept">CARDIOLOGY</div>
+                <div class="hosp-dept-long">Heart Care Unit</div>
+                <div class="hosp-facilities-label">FACILITIES</div>
+                <ul class="hosp-facilities">
                   <li>Advanced ECG Monitoring</li>
                   <li>Cardiac Catheterization Lab</li>
                   <li>Non-Invasive Cardiology</li>
                   <li>24×7 Emergency Cardiac Care</li>
+                  <li>Echo & Stress Testing</li>
                 </ul>
-                <a href="tel:+919876543210" class="slide-cta">Consult Now</a>
+                <a href="tel:+919876543210" class="hosp-cta-btn">Consult Now</a>
               </div>
-              <div class="slide-right">
-                <div class="doctor-avatar"><i class="fas fa-user-doctor"></i></div>
-                <div class="doctor-info">
-                  <div class="doctor-name">Dr. Priya Sharma</div>
-                  <div class="doctor-deg">MD Cardiology — AIIMS Delhi</div>
-                </div>
+              <div class="hosp-col-right">
+                <div class="doctor-circle"><i class="fas fa-user-doctor"></i></div>
+                <div class="doctor-name-text">Dr. Priya Sharma</div>
+                <div class="doctor-quals">MD Cardiology<br/><em>AIIMS Delhi</em></div>
               </div>
             </div>
-            <div class="slide-foot">
-              <span><i class="fas fa-location-dot"></i> Civil Lines, Jhansi</span>
-              <span><i class="fas fa-phone"></i> +91 98765 43210</span>
+            <div class="hosp-footer">
+              <span><i class="fas fa-location-dot"></i>Civil Lines, Jhansi</span>
+              <span><i class="fas fa-phone"></i>+91 98765 43210</span>
             </div>
           </article>
 
-          <!-- Slide 3 -->
-          <article class="hospital-slide">
-            <div class="slide-accent-bar"></div>
-            <div class="slide-body">
-              <div class="slide-left">
-                <div class="slide-hosp-meta">
-                  <div class="slide-hosp-icon"><i class="fas fa-bone"></i></div>
+          <!-- Slide 3 — ORTHOMED -->
+          <article class="hosp-card">
+            <div class="hosp-top-bar"></div>
+            <div class="hosp-content">
+              <div class="hosp-col-left">
+                <div class="hosp-identity">
+                  <div class="hosp-logo-box"><i class="fas fa-bone"></i></div>
                   <div>
-                    <div class="slide-hosp-name">ORTHOMED CENTRE</div>
-                    <div class="slide-hosp-type">Orthopaedic Speciality</div>
+                    <div class="hosp-name">ORTHOMED CENTRE</div>
+                    <div class="hosp-type">Orthopaedic Speciality</div>
                   </div>
                 </div>
-                <div class="slide-dept">ORTHO CARE</div>
-                <div class="slide-dept-full">Joint Replacement Unit</div>
-                <div class="slide-tag">FACILITIES</div>
-                <ul class="slide-list">
-                  <li>Knee & Hip Replacement</li>
+                <div class="hosp-dept">ORTHO</div>
+                <div class="hosp-dept-long">Joint Replacement Unit</div>
+                <div class="hosp-facilities-label">FACILITIES</div>
+                <ul class="hosp-facilities">
+                  <li>Knee &amp; Hip Replacement</li>
                   <li>Arthroscopy Surgery</li>
                   <li>Spine Surgery</li>
                   <li>Sports Injury Management</li>
+                  <li>Trauma &amp; Fracture Care</li>
                 </ul>
-                <a href="tel:+919112233445" class="slide-cta">Consult Now</a>
+                <a href="tel:+919112233445" class="hosp-cta-btn">Consult Now</a>
               </div>
-              <div class="slide-right">
-                <div class="doctor-avatar"><i class="fas fa-user-doctor"></i></div>
-                <div class="doctor-info">
-                  <div class="doctor-name">Dr. Rajesh Kumar</div>
-                  <div class="doctor-deg">MS Ortho — PGIMS Rohtak</div>
-                </div>
+              <div class="hosp-col-right">
+                <div class="doctor-circle"><i class="fas fa-user-doctor"></i></div>
+                <div class="doctor-name-text">Dr. Rajesh Kumar</div>
+                <div class="doctor-quals">MS Orthopaedics<br/><em>PGIMS Rohtak</em></div>
               </div>
             </div>
-            <div class="slide-foot">
-              <span><i class="fas fa-location-dot"></i> Sipri Bazaar, Jhansi</span>
-              <span><i class="fas fa-phone"></i> +91 91122 33445</span>
+            <div class="hosp-footer">
+              <span><i class="fas fa-location-dot"></i>Sipri Bazaar, Jhansi</span>
+              <span><i class="fas fa-phone"></i>+91 91122 33445</span>
             </div>
           </article>
 
         </div>
       </div>
-      <div class="slider-controls">
-        <button class="slider-arrow" id="prevSlide" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-        <div class="slider-dots" id="sliderDots">
-          <button class="dot active" data-i="0"></button>
-          <button class="dot" data-i="1"></button>
-          <button class="dot" data-i="2"></button>
-        </div>
-        <button class="slider-arrow" id="nextSlide" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      <!-- Slider dots -->
+      <div class="slider-dots-row" id="sliderDots">
+        <button class="sdot active" data-idx="0" aria-label="Slide 1"></button>
+        <button class="sdot" data-idx="1" aria-label="Slide 2"></button>
+        <button class="sdot" data-idx="2" aria-label="Slide 3"></button>
       </div>
     </section>
 
-    <!-- ═══ SERVICES ═══ -->
-    <section class="services-section" id="services">
-      <div class="section-header">
-        <p class="section-eyebrow">What We Do</p>
-        <h2 class="section-title">Emergency mein bhi <em>taiyaar.</em></h2>
+    <!-- ═══ SERVICE CARDS ═══ -->
+    <section class="services-section" aria-label="Our services">
+
+      <!-- 1. Cashless -->
+      <a href="#cashless" class="svc-row-card" id="cashless">
+        <div class="svc-text-block">
+          <h3 class="svc-label">Cashless Facility</h3>
+          <p class="svc-desc">Assistance for searching hospital for cashless treatment &amp; upload your documents</p>
+        </div>
+        <div class="svc-icon-block svc-icon--orange">
+          <i class="fas fa-hospital-user"></i>
+        </div>
+        <div class="svc-wave svc-wave--orange"></div>
+      </a>
+
+      <!-- 2. Reimbursement -->
+      <a href="#reimbursement" class="svc-row-card" id="reimbursement">
+        <div class="svc-text-block">
+          <h3 class="svc-label">Reimbursement</h3>
+          <p class="svc-desc">Reimbursement of your expenses — get every rupee back, fast</p>
+        </div>
+        <div class="svc-icon-block svc-icon--amber">
+          <i class="fas fa-sack-dollar"></i>
+        </div>
+        <div class="svc-wave svc-wave--amber"></div>
+      </a>
+
+      <!-- 3. Insurance -->
+      <a href="#insurance" class="svc-row-card" id="insurance">
+        <div class="svc-text-block">
+          <h3 class="svc-label">Insurance Coverage</h3>
+          <p class="svc-desc">Understand your policy, maximise your benefits, zero confusion</p>
+        </div>
+        <div class="svc-icon-block svc-icon--rose">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <div class="svc-wave svc-wave--rose"></div>
+      </a>
+
+      <!-- 4. Book OPD -->
+      <a href="#opd" class="svc-row-card" id="opd">
+        <div class="svc-text-block">
+          <h3 class="svc-label">Book OPD</h3>
+          <p class="svc-desc">Book outpatient appointments at empanelled hospitals — skip the queue</p>
+        </div>
+        <div class="svc-icon-block svc-icon--teal">
+          <i class="fas fa-calendar-check"></i>
+        </div>
+        <div class="svc-wave svc-wave--teal"></div>
+      </a>
+
+    </section>
+
+    <!-- ═══ GET A CALL BANNER ═══ -->
+    <section class="call-banner" id="contact">
+      <div class="call-banner-left">
+        <a href="tel:+919026320900" class="get-call-btn">
+          <span class="gcb-phone-ring">
+            <i class="fas fa-phone"></i>
+          </span>
+          <span class="gcb-text">Get a Call</span>
+        </a>
+        <p class="call-banner-note">Free · No charges · 24/7 support</p>
       </div>
-
-      <div class="services-grid">
-
-        <a href="#cashless-section" class="svc-card" id="cashless-section">
-          <div class="svc-card-top">
-            <div class="svc-icon-wrap">
-              <i class="fas fa-hospital"></i>
-            </div>
-            <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
+      <div class="call-banner-right" aria-hidden="true">
+        <div class="illustration-stack">
+          <div class="illus-sun"><i class="fas fa-sun"></i></div>
+          <div class="illus-shield"><i class="fas fa-shield-halved"></i></div>
+          <div class="illus-family">
+            <span class="illus-person"><i class="fas fa-person"></i></span>
+            <span class="illus-person illus-person--child"><i class="fas fa-child"></i></span>
+            <span class="illus-person"><i class="fas fa-person-dress"></i></span>
           </div>
-          <h3 class="svc-title">Cashless Facility</h3>
-          <p class="svc-desc">Assistance for searching a hospital with cashless treatment &amp; upload your documents — stress-free.</p>
-          <div class="svc-accent-line"></div>
-        </a>
-
-        <a href="#reimbursement-section" class="svc-card" id="reimbursement-section">
-          <div class="svc-card-top">
-            <div class="svc-icon-wrap">
-              <i class="fas fa-money-bill-transfer"></i>
-            </div>
-            <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-          </div>
-          <h3 class="svc-title">Reimbursement</h3>
-          <p class="svc-desc">Already paid from pocket? We help you claim every rupee back — fast and hassle-free.</p>
-          <div class="svc-accent-line"></div>
-        </a>
-
-        <a href="#insurance-section" class="svc-card" id="insurance-section">
-          <div class="svc-card-top">
-            <div class="svc-icon-wrap">
-              <i class="fas fa-shield-halved"></i>
-            </div>
-            <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-          </div>
-          <h3 class="svc-title">Insurance Coverage</h3>
-          <p class="svc-desc">Understand your policy benefits, exclusions, and get guidance on maximising your coverage.</p>
-          <div class="svc-accent-line"></div>
-        </a>
-
-        <a href="#opd-section" class="svc-card" id="opd-section">
-          <div class="svc-card-top">
-            <div class="svc-icon-wrap">
-              <i class="fas fa-calendar-check"></i>
-            </div>
-            <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-          </div>
-          <h3 class="svc-title">Book OPD</h3>
-          <p class="svc-desc">Book outpatient appointments at empanelled hospitals — skip the queue, save your time.</p>
-          <div class="svc-accent-line"></div>
-        </a>
-
+          <div class="illus-badge"><i class="fas fa-star-of-life"></i></div>
+        </div>
       </div>
     </section>
 
     <!-- ═══ HOW IT WORKS ═══ -->
-    <section class="how-section">
-      <div class="section-header">
-        <p class="section-eyebrow">Process</p>
-        <h2 class="section-title">3 steps. <em>That's it.</em></h2>
-      </div>
-      <div class="steps-row">
-        <div class="step">
-          <div class="step-num">01</div>
-          <div class="step-icon"><i class="fas fa-phone"></i></div>
-          <h4>Call Us</h4>
-          <p>Reach out anytime — we're available 24/7 for emergencies.</p>
-        </div>
-        <div class="step-line"></div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <div class="step-icon"><i class="fas fa-file-medical"></i></div>
-          <h4>Share Details</h4>
-          <p>Tell us your insurance &amp; condition. Upload documents via WhatsApp.</p>
-        </div>
-        <div class="step-line"></div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <div class="step-icon"><i class="fas fa-check-circle"></i></div>
-          <h4>Get Admitted</h4>
-          <p>We coordinate with the hospital. You walk in cashless, worry-free.</p>
+    <section class="how-section" id="how-it-works">
+      <div class="how-inner">
+        <div class="section-eyebrow"><span></span>How It Works</div>
+        <h2 class="section-headline">3 steps. <em>That's it.</em></h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num-badge">01</div>
+            <div class="step-ico"><i class="fas fa-phone"></i></div>
+            <h4>Call Us</h4>
+            <p>Reach out anytime — we're available 24/7 for emergencies and planned admissions.</p>
+          </div>
+          <div class="step-connector" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
+          <div class="step-card">
+            <div class="step-num-badge">02</div>
+            <div class="step-ico"><i class="fas fa-file-medical"></i></div>
+            <h4>Share Details</h4>
+            <p>Tell us your insurance &amp; condition. Upload documents in seconds via WhatsApp.</p>
+          </div>
+          <div class="step-connector" aria-hidden="true"><i class="fas fa-chevron-right"></i></div>
+          <div class="step-card">
+            <div class="step-num-badge">03</div>
+            <div class="step-ico"><i class="fas fa-circle-check"></i></div>
+            <h4>Get Admitted</h4>
+            <p>We coordinate with the hospital. You walk in cashless and worry-free.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ TRUST STRIP ═══ -->
-    <section class="trust-strip">
-      <div class="trust-item">
-        <span class="trust-num">500<sup>+</sup></span>
-        <span class="trust-label">Network Hospitals</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-num">50K<sup>+</sup></span>
-        <span class="trust-label">Claims Settled</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-num">30+</span>
-        <span class="trust-label">Insurance Partners</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-num">24/7</span>
-        <span class="trust-label">Support</span>
-      </div>
-    </section>
+    <!-- ═══ TRUST NUMBERS ═══ -->
+    <div class="trust-bar">
+      <div class="trust-item"><span class="trust-n">500<sup>+</sup></span><span class="trust-l">Network Hospitals</span></div>
+      <div class="trust-sep"></div>
+      <div class="trust-item"><span class="trust-n">50K<sup>+</sup></span><span class="trust-l">Claims Settled</span></div>
+      <div class="trust-sep"></div>
+      <div class="trust-item"><span class="trust-n">30<sup>+</sup></span><span class="trust-l">Insurance Partners</span></div>
+      <div class="trust-sep"></div>
+      <div class="trust-item"><span class="trust-n">24/7</span><span class="trust-l">Support</span></div>
+    </div>
 
-    <!-- ═══ CTA BANNER ═══ -->
-    <section class="cta-section" id="contact">
-      <div class="cta-inner">
-        <div class="cta-text">
-          <p class="cta-eyebrow">Apni insurance select karo.</p>
-          <h2 class="cta-headline">Bimari batao.<br /><em>Hospital dekho. Bas.</em></h2>
-          <p class="cta-sub">India's first cashless hospital finder. No panic, no confusion — just clarity in the moment you need it most.</p>
-        </div>
-        <div class="cta-action">
-          <a href="tel:+919026320900" class="btn-primary btn-large">
-            <span class="btn-icon"><i class="fas fa-phone"></i></span>
-            Get a Free Call
-          </a>
-          <p class="cta-note">Free consultation &bull; No charges</p>
-        </div>
+    <!-- ═══ FINAL CTA ═══ -->
+    <section class="final-cta">
+      <div class="final-cta-inner">
+        <p class="final-cta-eyebrow">Apni insurance select karo.</p>
+        <h2 class="final-cta-headline">Bimari batao.<br /><em>Hospital dekho. Bas.</em></h2>
+        <p class="final-cta-sub">India's first cashless hospital finder. No panic, no confusion — just clarity in the moment you need it most.</p>
+        <a href="tel:+919026320900" class="final-cta-btn">
+          <span class="fcb-icon"><i class="fas fa-phone"></i></span>
+          Get a Free Call Now
+        </a>
+        <p class="final-cta-note">Free consultation &bull; Zero charges &bull; Instant help</p>
       </div>
     </section>
 
@@ -359,30 +329,43 @@
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <svg class="footer-logo-icon" viewBox="0 0 40 40" fill="none">
-          <path d="M20 35C20 35 6 26 6 15.5C6 11 9.7 7 14.5 7C17.1 7 19.4 8.3 20 9.5C20.6 8.3 22.9 7 25.5 7C30.3 7 34 11 34 15.5C34 26 20 35 20 35Z" fill="#F25C08"/>
-          <path d="M17 18v-4h6v4h4v6h-4v4h-6v-4h-4v-6h4z" fill="white"/>
-        </svg>
-        <div>
-          <div class="footer-brand-name">Dr. Cashless</div>
-          <div class="footer-brand-tag">Your trusted health insurance partner</div>
+      <div class="footer-col footer-col--brand">
+        <div class="footer-brand">
+          <div class="footer-brand-mark"><i class="fas fa-heart-pulse"></i></div>
+          <div>
+            <div class="footer-brand-name">Dr. Cashless</div>
+            <div class="footer-brand-tagline">Your trusted health insurance partner</div>
+          </div>
         </div>
+        <p class="footer-about">India's first cashless hospital finder — making healthcare accessible for every family.</p>
       </div>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#cashless-section">Cashless</a>
-        <a href="#insurance-section">Insurance</a>
-        <a href="#contact">Contact</a>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#cashless">Cashless Facility</a></li>
+          <li><a href="#reimbursement">Reimbursement</a></li>
+          <li><a href="#insurance">Insurance Coverage</a></li>
+          <li><a href="#opd">Book OPD</a></li>
+        </ul>
       </div>
-      <div class="footer-contact">
-        <a href="tel:+919026320900"><i class="fas fa-phone"></i> +91 90263 20900</a>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:+919026320900"><i class="fas fa-phone"></i> +91 90263 20900</a></li>
+          <li><a href="tel:05102441111"><i class="fas fa-phone-volume"></i> 0510-2441111</a></li>
+          <li><a href="#contact"><i class="fas fa-clock"></i> Available 24/7</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2024 Dr. Cashless. All rights reserved.</span>
     </div>
   </footer>
+
+  <!-- ═══ FLOATING CALL BUTTON (mobile) ═══ -->
+  <a href="tel:+919026320900" class="fab-call" aria-label="Call Dr. Cashless">
+    <i class="fas fa-phone"></i>
+  </a>
 
   <script src="app.js"></script>
 </body>
