@@ -462,24 +462,24 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   background: var(--black);
   border-color: rgba(255,255,255,0.1);
 }
-.svc-card--dark h3 { color: #fff; }
-.svc-card--dark p  { color: rgba(255,255,255,0.5); }
-.svc-card--dark .svc-num  { color: rgba(255,255,255,0.2); }
-.svc-card--dark .svc-icon { color: rgba(255,255,255,0.8); }
-.svc-card--dark .svc-footer { color: #fff; border-top-color: rgba(255,255,255,0.1); }
-.svc-card--dark .svc-arrow { background: rgba(255,255,255,0.1); color: #fff; }
+.svc-card--dark .svc-card-inner h3 { color: #ffffff !important; }
+.svc-card--dark .svc-card-inner p  { color: rgba(255,255,255,0.72) !important; }
+.svc-card--dark .svc-num  { color: rgba(255,255,255,0.25); }
+.svc-card--dark .svc-icon { color: rgba(255,255,255,0.9); }
+.svc-card--dark .svc-footer { color: #fff; border-top-color: rgba(255,255,255,0.12); }
+.svc-card--dark .svc-arrow { background: rgba(255,255,255,0.12); color: #fff; }
 .svc-card--dark:hover .svc-card-inner { border-color: rgba(255,255,255,0.3); }
 
 .svc-card--accent .svc-card-inner {
   background: var(--orange);
   border-color: transparent;
 }
-.svc-card--accent h3 { color: #fff; }
-.svc-card--accent p  { color: rgba(255,255,255,0.75); }
-.svc-card--accent .svc-num  { color: rgba(255,255,255,0.4); }
+.svc-card--accent .svc-card-inner h3 { color: #ffffff !important; }
+.svc-card--accent .svc-card-inner p  { color: #ffffff !important; opacity: 0.92; }
+.svc-card--accent .svc-num  { color: rgba(255,255,255,0.5); }
 .svc-card--accent .svc-icon { color: #fff; }
-.svc-card--accent .svc-footer { color: #fff; border-top-color: rgba(255,255,255,0.25); }
-.svc-card--accent .svc-arrow { background: rgba(255,255,255,0.2); color: #fff; }
+.svc-card--accent .svc-footer { color: #fff; border-top-color: rgba(255,255,255,0.3); }
+.svc-card--accent .svc-arrow { background: rgba(255,255,255,0.25); color: #fff; }
 .svc-card--accent:hover .svc-card-inner { box-shadow: 0 20px 60px rgba(242,92,8,0.35); border-color: transparent; }
 
 .svc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
