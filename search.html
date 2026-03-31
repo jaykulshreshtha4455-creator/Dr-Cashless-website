@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a Cashless Hospital — Dr. Cashless</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="search.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- DRAWER -->
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-brand">
+        <div class="d-mark"><i class="fas fa-heart-pulse"></i></div>
+        <div>
+          <div class="d-name">Dr. Cashless</div>
+          <div class="d-sub">Health Made Simple</div>
+        </div>
+      </div>
+      <button class="close-btn" id="closeBtn"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="index.html#home"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="index.html#services"><i class="fas fa-grid-2"></i> Services</a></li>
+      <li><a href="search.html" class="drawer-active"><i class="fas fa-magnifying-glass"></i> Find Hospital</a></li>
+      <li><a href="index.html#how"><i class="fas fa-list-check"></i> How It Works</a></li>
+      <li><a href="index.html#why"><i class="fas fa-star"></i> Why Us</a></li>
+      <li><a href="index.html#contact"><i class="fas fa-phone"></i> Contact</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a href="tel:+919026320900" class="d-cta">
+        <i class="fas fa-phone"></i> Get a Free Call
+      </a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="header" id="pageTop">
+    <div class="header-inner">
+      <button class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-heart-pulse"></i></div>
+        Dr. <strong>Cashless</strong>
+      </a>
+      <nav class="desk-nav">
+        <a href="index.html#services">Services</a>
+        <a href="search.html" class="desk-nav-active">Find Hospital</a>
+        <a href="index.html#why">Why Us</a>
+      </nav>
+      <a href="tel:+919026320900" class="header-btn">Get a Call</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="search-hero">
+      <div class="search-hero-inner">
+        <div class="section-chip">Hospital Finder</div>
+        <h1 class="search-hero-title">Find a <em>Cashless</em> Hospital Near You</h1>
+        <p class="search-hero-desc">Search from 500+ empanelled hospitals across India. Filter by location, insurance company, or TPA — and get admitted without paying a rupee upfront.</p>
+      </div>
+    </section>
+
+    <!-- SEARCH SECTION -->
+    <section class="search-section">
+      <div class="container">
+
+        <!-- SEARCH CARD -->
+        <div class="search-card">
+
+          <!-- Block 1: Location -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <div class="form-block-icon">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="form-block-label">Location</div>
+                <div class="form-block-hint">Select your state, district, and city</div>
+              </div>
+            </div>
+            <div class="form-row form-row--3">
+              <div class="select-wrap">
+                <select id="stateSelect">
+                  <option value="">Select State</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+              <div class="select-wrap">
+                <select id="districtSelect" disabled>
+                  <option value="">Select District</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+              <div class="select-wrap">
+                <select id="citySelect" disabled>
+                  <option value="">Select City</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-divider"></div>
+
+          <!-- Block 2: Insurance Details -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <div class="form-block-icon">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <div>
+                <div class="form-block-label">Insurance Details</div>
+                <div class="form-block-hint">Select your insurer or TPA (optional)</div>
+              </div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="select-wrap">
+                <select id="insurerSelect">
+                  <option value="">All Insurance Companies</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+              <div class="select-wrap">
+                <select id="tpaSelect">
+                  <option value="">All TPAs</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+          <button class="search-btn" id="searchBtn">
+            <i class="fas fa-magnifying-glass"></i> Search Cashless Hospitals
+          </button>
+        </div>
+
+        <!-- RESULTS SECTION -->
+        <div class="results-section" id="resultsSection">
+          <div class="results-header">
+            <div>
+              <div class="results-count" id="resultsCount">0 Hospitals Found</div>
+              <div class="results-location" id="resultsLocation"></div>
+            </div>
+            <button class="btn-reset" id="resetBtn"><i class="fas fa-rotate-left"></i> Reset</button>
+          </div>
+
+          <!-- NO RESULTS -->
+          <div class="no-results" id="noResults">
+            <div class="no-results-icon"><i class="fas fa-hospital-slash"></i></div>
+            <h3 class="no-results-heading">No Hospitals Found</h3>
+            <p class="no-results-text">We couldn't find a cashless hospital matching your filters. Try broadening your search, or call us — we'll find the right hospital for you.</p>
+            <a href="tel:+919026320900" class="no-results-btn">
+              <i class="fas fa-phone"></i> Call Us for Help
+            </a>
+          </div>
+
+          <!-- RESULTS GRID -->
+          <div class="results-grid" id="resultsGrid"></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <div class="footer-mark"><i class="fas fa-heart-pulse"></i></div>
+            <span>Dr. <strong>Cashless</strong></span>
+          </div>
+          <p class="footer-tagline">Health Made Simple.<br />India's #1 cashless hospital finder.</p>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Services</div>
+          <ul>
+            <li><a href="index.html#services">Cashless Facility</a></li>
+            <li><a href="index.html#services">Reimbursement</a></li>
+            <li><a href="index.html#services">Insurance Coverage</a></li>
+            <li><a href="index.html#services">Book OPD</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:+919026320900">+91 90263 20900</a></li>
+            <li><a href="tel:05102441111">0510-2441111</a></li>
+            <li>Available 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Dr. Cashless. All rights reserved.</span>
+        <span>Your trusted health insurance partner.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CALL BTN -->
+  <a href="tel:+919026320900" class="fab" aria-label="Call now">
+    <i class="fas fa-phone"></i>
+  </a>
+
+  <script src="app.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>
