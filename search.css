@@ -26,11 +26,22 @@
 .search-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: var(--max);
-  margin: 0 auto;
   max-width: 700px;
+  margin: 0 auto;
 }
 .search-hero .section-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--orange);
+  background: var(--orange-dim);
+  border: 1px solid rgba(242, 92, 8, 0.25);
+  padding: 6px 14px;
+  border-radius: 50px;
   margin-bottom: 20px;
 }
 .search-hero-title {
@@ -62,7 +73,7 @@
    ============================== */
 .search-section {
   background: var(--off);
-  padding: 0 0 80px;
+  padding: 0 0 60px;
 }
 
 
@@ -549,23 +560,4 @@
   color: var(--orange);
   border-left-color: var(--orange);
   background: rgba(242, 92, 8, 0.06);
-}
-
-
-/* ==============================
-   SECTION CHIP (reused from styles.css context)
-   ============================== */
-.search-hero .section-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--orange);
-  background: var(--orange-dim);
-  border: 1px solid rgba(242, 92, 8, 0.25);
-  padding: 6px 14px;
-  border-radius: 50px;
 }
