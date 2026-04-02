@@ -151,7 +151,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 
 /* Hero text */
-.hero-content { padding: 120px 20px 80px; max-width: var(--max); margin: 0 auto; width: 100%; }
+.hero-content { padding: 88px 20px 48px; max-width: var(--max); margin: 0 auto; width: 100%; }
 
 .hero-eyebrow {
   display: flex; align-items: center; gap: 10px;
