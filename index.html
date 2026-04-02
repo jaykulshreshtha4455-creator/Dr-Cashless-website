@@ -32,7 +32,6 @@
       <li><a href="#services"><i class="fas fa-grid-2"></i> Services</a></li>
       <li><a href="search.html"><i class="fas fa-magnifying-glass"></i> Find Hospital</a></li>
       <li><a href="#how"><i class="fas fa-list-check"></i> How It Works</a></li>
-      <li><a href="#why"><i class="fas fa-star"></i> Why Us</a></li>
       <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
     </ul>
     <div class="drawer-foot">
@@ -45,19 +44,13 @@
   <!-- HEADER -->
   <header class="header" id="home">
     <div class="header-inner">
-      <button class="menu-btn" id="menuBtn">
-        <span></span><span></span><span></span>
-      </button>
       <a href="#home" class="brand">
         <div class="brand-icon"><i class="fas fa-heart-pulse"></i></div>
         Dr. <strong>Cashless</strong>
       </a>
-      <nav class="desk-nav">
-        <a href="#services">Services</a>
-        <a href="search.html">Find Hospital</a>
-        <a href="#why">Why Us</a>
-      </nav>
-      <a href="tel:+919026320900" class="header-btn">Get a Call</a>
+      <button class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -67,165 +60,107 @@
          HERO
     ============================== -->
     <section class="hero" id="hero">
-      <div class="hero-bg-glow"></div>
-      <div class="hero-grid-overlay"></div>
-      <div class="hero-inner">
-        <div class="hero-content">
-          <div class="hero-eyebrow">
-            <span class="eyebrow-dot"></span>
-            India's #1 Cashless Health Partner
-          </div>
-          <h1 class="hero-title">
-            Your health.<br />
-            Our <em>mission.</em>
-          </h1>
-          <p class="hero-desc">
-            Find cashless hospitals. File claims instantly.<br />
-            Get admitted — without paying a rupee upfront.
-          </p>
-          <div class="hero-actions">
-            <a href="tel:+919026320900" class="btn-hero-primary">
-              <span class="btn-icon-ring"><i class="fas fa-phone"></i></span>
-              Get Free Help Now
-            </a>
-            <a href="#services" class="btn-hero-ghost">
-              Explore Services <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-        <div class="hero-cards">
-          <div class="glass-card glass-card--main">
-            <div class="gc-top">
-              <div class="gc-icon"><i class="fas fa-shield-halved"></i></div>
-              <span class="gc-status">Active</span>
-            </div>
-            <div class="gc-title">Cashless Admission</div>
-            <div class="gc-sub">Zero out-of-pocket at admission</div>
-            <div class="gc-bar"><div class="gc-bar-fill"></div></div>
-          </div>
-          <div class="hero-mini-cards">
-            <div class="mini-card">
-              <i class="fas fa-circle-check"></i>
-              <div>
-                <div class="mc-title">Claim Approved</div>
-                <div class="mc-val">&#x20B9;1,20,000</div>
-              </div>
-            </div>
-            <div class="mini-card">
-              <i class="fas fa-clock"></i>
-              <div>
-                <div class="mc-title">Avg. Response</div>
-                <div class="mc-val">&lt; 10 mins</div>
-              </div>
-            </div>
-          </div>
-          <div class="hero-stats-band">
-            <div class="hs">
-              <span class="hs-n">500<sup>+</sup></span>
-              <span class="hs-l">Hospitals</span>
-            </div>
-            <div class="hs-sep"></div>
-            <div class="hs">
-              <span class="hs-n">50K<sup>+</sup></span>
-              <span class="hs-l">Claims</span>
-            </div>
-            <div class="hs-sep"></div>
-            <div class="hs">
-              <span class="hs-n">24/7</span>
-              <span class="hs-l">Support</span>
-            </div>
-          </div>
-        </div>
+
+      <!-- 3×3 image mosaic -->
+      <div class="hero-mosaic">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=400&q=75&fit=crop&crop=center" alt="" />
+        <img src="https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=400&q=75&fit=crop&crop=center" alt="" />
       </div>
-      <div class="hero-scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
+
+      <!-- Hero text content -->
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          INDIA'S #1 CASHLESS HEALTH PARTNER
+        </div>
+        <h1 class="hero-title">
+          Your health.<br />
+          Our <em>mission.</em>
+        </h1>
+        <p class="hero-desc">
+          Find cashless hospitals instantly. File claims. Get admitted — without paying a rupee upfront.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:+919026320900" class="btn-hero-primary">
+            <span class="btn-icon-ring"><i class="fas fa-phone"></i></span>
+            Get Free Help Now
+          </a>
+          <a href="search.html" class="btn-hero-ghost">
+            Find a Hospital <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- ==============================
-         MARQUEE
-    ============================== -->
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span>Cashless Facility</span><i class="fas fa-circle"></i>
-        <span>Insurance Coverage</span><i class="fas fa-circle"></i>
-        <span>Reimbursement</span><i class="fas fa-circle"></i>
-        <span>Book OPD</span><i class="fas fa-circle"></i>
-        <span>24/7 Support</span><i class="fas fa-circle"></i>
-        <span>500+ Hospitals</span><i class="fas fa-circle"></i>
-        <span>30+ Insurers</span><i class="fas fa-circle"></i>
-        <span>Cashless Facility</span><i class="fas fa-circle"></i>
-        <span>Insurance Coverage</span><i class="fas fa-circle"></i>
-        <span>Reimbursement</span><i class="fas fa-circle"></i>
-        <span>Book OPD</span><i class="fas fa-circle"></i>
-        <span>24/7 Support</span><i class="fas fa-circle"></i>
-        <span>500+ Hospitals</span><i class="fas fa-circle"></i>
-        <span>30+ Insurers</span><i class="fas fa-circle"></i>
-      </div>
-    </div>
-
-    <!-- ==============================
          SERVICES
     ============================== -->
-    <section class="section services-section" id="services">
+    <section class="services-section" id="services">
       <div class="container">
-        <div class="section-top">
-          <div class="section-left">
-            <div class="section-chip">What We Do</div>
-            <h2 class="section-h2">Everything your<br /><em>insurance needs.</em></h2>
-          </div>
-          <p class="section-right-text">
-            From finding a cashless hospital to getting your claim settled — we handle every step so you can focus on recovery.
-          </p>
+        <div class="svc-header">
+          <div class="section-chip">What We Do</div>
+          <h2 class="section-h2">Everything your<br /><em>insurance needs.</em></h2>
+          <p class="svc-subtitle">From finding the right hospital to getting every rupee back — we handle it all.</p>
         </div>
 
         <div class="svc-grid">
-          <a class="svc-card reveal" href="#contact">
+
+          <!-- 01 — Dark card -->
+          <a class="svc-card svc-card--dark reveal" href="search.html">
             <div class="svc-card-inner">
               <div class="svc-top">
                 <span class="svc-num">01</span>
-                <div class="svc-icon"><i class="fas fa-hospital-user"></i></div>
+                <div class="svc-icon"><i class="fas fa-house-medical"></i></div>
               </div>
               <h3>Cashless Facility</h3>
-              <p>We locate empanelled hospitals near you and manage all the paperwork — so you walk in without paying a rupee.</p>
+              <p>We locate empanelled hospitals and handle all paperwork — you walk in without paying a rupee.</p>
               <div class="svc-footer">
-                <span>Get Help</span>
+                <span>FIND HOSPITAL</span>
                 <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
               </div>
             </div>
           </a>
 
-          <a class="svc-card svc-card--dark reveal" href="#contact">
+          <!-- 02 — Orange card -->
+          <a class="svc-card svc-card--accent reveal" href="#contact">
             <div class="svc-card-inner">
               <div class="svc-top">
                 <span class="svc-num">02</span>
-                <div class="svc-icon"><i class="fas fa-money-bill-transfer"></i></div>
+                <div class="svc-icon"><i class="fas fa-dollar-sign"></i></div>
               </div>
               <h3>Reimbursement</h3>
-              <p>Already paid from pocket? We guide you through the complete claim process and recover every rupee — fast.</p>
+              <p>Already paid from pocket? We recover every rupee through the claim process — fast.</p>
               <div class="svc-footer">
-                <span>Start Claim</span>
+                <span>START CLAIM</span>
                 <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
               </div>
             </div>
           </a>
 
-          <a class="svc-card svc-card--accent reveal" href="#contact">
+          <!-- 03 — Light card -->
+          <a class="svc-card reveal" href="#contact">
             <div class="svc-card-inner">
               <div class="svc-top">
                 <span class="svc-num">03</span>
                 <div class="svc-icon"><i class="fas fa-shield-halved"></i></div>
               </div>
               <h3>Insurance Coverage</h3>
-              <p>Confused by your policy? We decode the fine print and help you maximise every benefit you're entitled to.</p>
+              <p>Confused by your policy? We decode the fine print and help you maximise every benefit.</p>
               <div class="svc-footer">
-                <span>Know More</span>
+                <span>KNOW MORE</span>
                 <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
               </div>
             </div>
           </a>
 
+          <!-- 04 — Light card -->
           <a class="svc-card reveal" href="#contact">
             <div class="svc-card-inner">
               <div class="svc-top">
@@ -233,42 +168,14 @@
                 <div class="svc-icon"><i class="fas fa-calendar-check"></i></div>
               </div>
               <h3>Book OPD</h3>
-              <p>Skip the queue. Book outpatient appointments at our network hospitals — confirmed within minutes.</p>
+              <p>Skip the queue. Book outpatient appointments at our network hospitals — confirmed in minutes.</p>
               <div class="svc-footer">
-                <span>Book Now</span>
+                <span>BOOK NOW</span>
                 <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
               </div>
             </div>
           </a>
-        </div>
-      </div>
-    </section>
 
-    <!-- ==============================
-         NUMBERS
-    ============================== -->
-    <section class="numbers-section">
-      <div class="container">
-        <div class="numbers-inner">
-          <div class="num-item reveal">
-            <span class="num-val" data-target="500">0</span><span class="num-suffix">+</span>
-            <span class="num-label">Network Hospitals</span>
-          </div>
-          <div class="num-divider"></div>
-          <div class="num-item reveal">
-            <span class="num-val" data-target="50000">0</span><span class="num-suffix">+</span>
-            <span class="num-label">Claims Settled</span>
-          </div>
-          <div class="num-divider"></div>
-          <div class="num-item reveal">
-            <span class="num-val" data-target="30">0</span><span class="num-suffix">+</span>
-            <span class="num-label">Insurance Partners</span>
-          </div>
-          <div class="num-divider"></div>
-          <div class="num-item reveal">
-            <span class="num-val">24/7</span>
-            <span class="num-label">Expert Support</span>
-          </div>
         </div>
       </div>
     </section>
@@ -276,92 +183,37 @@
     <!-- ==============================
          HOW IT WORKS
     ============================== -->
-    <section class="section how-section" id="how">
+    <section class="how-section" id="how">
       <div class="container">
         <div class="section-chip">The Process</div>
-        <h2 class="section-h2 centered">3 steps. <em>That's it.</em></h2>
-        <div class="steps-wrap">
-          <div class="step-track"></div>
-          <div class="steps-row">
-            <div class="step-item reveal">
-              <div class="step-node">
-                <div class="step-node-inner"><i class="fas fa-phone"></i></div>
-                <span class="step-label-num">01</span>
-              </div>
-              <div class="step-body">
-                <h4>Call Us</h4>
-                <p>Reach out anytime — we're available 24/7 for emergencies and planned admissions.</p>
-              </div>
-            </div>
-            <div class="step-item reveal">
-              <div class="step-node step-node--active">
-                <div class="step-node-inner"><i class="fas fa-file-medical"></i></div>
-                <span class="step-label-num">02</span>
-              </div>
-              <div class="step-body">
-                <h4>Share Details</h4>
-                <p>Tell us your insurance and condition. Upload documents via WhatsApp in seconds.</p>
-              </div>
-            </div>
-            <div class="step-item reveal">
-              <div class="step-node">
-                <div class="step-node-inner"><i class="fas fa-circle-check"></i></div>
-                <span class="step-label-num">03</span>
-              </div>
-              <div class="step-body">
-                <h4>Get Admitted</h4>
-                <p>We coordinate with the hospital. You walk in cashless and completely worry-free.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <h2 class="section-h2">3 steps. <em>That's it.</em></h2>
 
-    <!-- ==============================
-         WHY US
-    ============================== -->
-    <section class="section why-section" id="why">
-      <div class="container">
-        <div class="why-inner">
-          <div class="why-left">
-            <div class="section-chip">Why Dr. Cashless</div>
-            <h2 class="section-h2">No panic.<br />No confusion.<br /><em>Just clarity.</em></h2>
-            <p class="why-body">India's first cashless hospital finder — built for the moment when every minute matters. We turn a stressful emergency into a seamless experience.</p>
-            <a href="tel:+919026320900" class="btn-dark-lg">
-              <i class="fas fa-phone"></i> Call Us Now
-            </a>
-          </div>
-          <div class="why-right">
-            <div class="why-card reveal">
-              <div class="why-icon"><i class="fas fa-bolt"></i></div>
-              <div>
-                <h4>Instant Response</h4>
-                <p>We respond within minutes — even at 3am in a medical emergency.</p>
-              </div>
-            </div>
-            <div class="why-card reveal">
-              <div class="why-icon"><i class="fas fa-handshake"></i></div>
-              <div>
-                <h4>End-to-End Support</h4>
-                <p>From finding a hospital to discharge — we stay with you every step.</p>
-              </div>
-            </div>
-            <div class="why-card reveal">
-              <div class="why-icon"><i class="fas fa-indian-rupee-sign"></i></div>
-              <div>
-                <h4>Zero Hidden Costs</h4>
-                <p>Our consultation is 100% free. No commissions. No surprises.</p>
-              </div>
-            </div>
-            <div class="why-card reveal">
-              <div class="why-icon"><i class="fas fa-network-wired"></i></div>
-              <div>
-                <h4>Massive Network</h4>
-                <p>500+ hospitals across the region accept cashless treatment through us.</p>
-              </div>
+        <div class="steps-list">
+
+          <div class="step-item reveal">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <h4>Call Us</h4>
+              <p>Reach out anytime — we're available 24/7 for emergencies and planned admissions.</p>
             </div>
           </div>
+
+          <div class="step-item reveal">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <h4>Share Details</h4>
+              <p>Tell us your insurance and condition. Upload documents via WhatsApp in seconds.</p>
+            </div>
+          </div>
+
+          <div class="step-item reveal">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <h4>Get Admitted</h4>
+              <p>We coordinate with the hospital. You walk in cashless and completely worry-free.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -373,7 +225,7 @@
       <div class="cta-glow"></div>
       <div class="container">
         <div class="cta-inner">
-          <div class="cta-overline">Apni insurance select karo. Bimari batao.</div>
+          <div class="cta-overline">READY WHEN YOU ARE</div>
           <h2 class="cta-title">Hospital dekho.<br /><em>Bas.</em></h2>
           <p class="cta-body">No jargon. No confusion. Just the right help at the right moment — for every Indian family.</p>
           <a href="tel:+919026320900" class="btn-cta">
@@ -390,36 +242,7 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand-col">
-          <div class="footer-brand">
-            <div class="footer-mark"><i class="fas fa-heart-pulse"></i></div>
-            <span>Dr. <strong>Cashless</strong></span>
-          </div>
-          <p class="footer-tagline">Health Made Simple.<br />India's #1 cashless hospital finder.</p>
-        </div>
-        <div class="footer-links-col">
-          <div class="footer-col-title">Services</div>
-          <ul>
-            <li><a href="#services">Cashless Facility</a></li>
-            <li><a href="#services">Reimbursement</a></li>
-            <li><a href="#services">Insurance Coverage</a></li>
-            <li><a href="#services">Book OPD</a></li>
-          </ul>
-        </div>
-        <div class="footer-links-col">
-          <div class="footer-col-title">Contact</div>
-          <ul>
-            <li><a href="tel:+919026320900">+91 90263 20900</a></li>
-            <li><a href="tel:05102441111">0510-2441111</a></li>
-            <li>Available 24/7</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; 2024 Dr. Cashless. All rights reserved.</span>
-        <span>Your trusted health insurance partner.</span>
-      </div>
+      <p class="footer-copy">&copy; 2026 Dr. Cashless &mdash; H&amp;T Mediclaim</p>
     </div>
   </footer>
 
