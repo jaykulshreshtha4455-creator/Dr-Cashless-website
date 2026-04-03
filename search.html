@@ -137,6 +137,37 @@
             </div>
           </div>
 
+          <div class="form-divider"></div>
+
+          <!-- Block 3: Department & Complaint -->
+          <div class="form-block">
+            <div class="form-block-title">
+              <div class="form-block-icon">
+                <i class="fas fa-stethoscope"></i>
+              </div>
+              <div>
+                <div class="form-block-label">Department & Complaint</div>
+                <div class="form-block-hint">Select department, then your complaint (optional)</div>
+              </div>
+            </div>
+            <div class="form-row form-row--1">
+              <div class="select-wrap">
+                <select id="deptSelect">
+                  <option value="">All Departments</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+            <div class="form-row form-row--1" id="complaintWrap" style="display:none">
+              <div class="select-wrap">
+                <select id="complaintSelect">
+                  <option value="">All Complaints</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+          </div>
+
           <button class="search-btn" id="searchBtn">
             <i class="fas fa-magnifying-glass"></i> Search Cashless Hospitals
           </button>

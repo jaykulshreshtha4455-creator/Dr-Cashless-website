@@ -211,6 +211,187 @@ const TPAS = [
   { id: 'dedicated',     name: 'Dedicated Healthcare' },
 ];
 
+const DEPARTMENTS = [
+  { id: 'ortho',       name: 'Orthopaedics' },
+  { id: 'cardio',      name: 'Cardiology' },
+  { id: 'neuro',       name: 'Neurology' },
+  { id: 'gastro',      name: 'Gastroenterology' },
+  { id: 'onco',        name: 'Oncology' },
+  { id: 'gynae',       name: 'Gynaecology' },
+  { id: 'paeds',       name: 'Paediatrics' },
+  { id: 'ent',         name: 'ENT' },
+  { id: 'ophthal',     name: 'Ophthalmology' },
+  { id: 'derma',       name: 'Dermatology' },
+  { id: 'nephro',      name: 'Nephrology' },
+  { id: 'pulmo',       name: 'Pulmonology' },
+  { id: 'urology',     name: 'Urology' },
+  { id: 'psych',       name: 'Psychiatry' },
+  { id: 'gen-surgery', name: 'General Surgery' },
+  { id: 'gen-med',     name: 'General Medicine' },
+];
+
+const COMPLAINTS_BY_DEPT = {
+  ortho: [
+    { id: 'knee-pain',        name: 'Knee Pain / Knee Replacement' },
+    { id: 'hip-replacement',  name: 'Hip Replacement' },
+    { id: 'back-pain',        name: 'Back & Spine Pain' },
+    { id: 'fracture',         name: 'Fracture / Trauma' },
+    { id: 'joint-pain',       name: 'Joint Pain / Arthritis' },
+    { id: 'sports-injury',    name: 'Sports Injury' },
+    { id: 'slip-disc',        name: 'Slip Disc / Sciatica' },
+    { id: 'shoulder-pain',    name: 'Shoulder Pain' },
+  ],
+  cardio: [
+    { id: 'chest-pain',       name: 'Chest Pain / Angina' },
+    { id: 'heart-attack',     name: 'Heart Attack (MI)' },
+    { id: 'angioplasty',      name: 'Angioplasty / Stenting' },
+    { id: 'bypass',           name: 'Bypass Surgery (CABG)' },
+    { id: 'arrhythmia',       name: 'Arrhythmia / Palpitations' },
+    { id: 'heart-failure',    name: 'Heart Failure' },
+    { id: 'valve-disease',    name: 'Valve Disease' },
+    { id: 'hypertension',     name: 'High Blood Pressure' },
+  ],
+  neuro: [
+    { id: 'stroke',           name: 'Stroke / Paralysis' },
+    { id: 'epilepsy',         name: 'Epilepsy / Seizures' },
+    { id: 'migraine',         name: 'Migraine / Chronic Headache' },
+    { id: 'brain-tumour',     name: 'Brain Tumour' },
+    { id: 'parkinsons',       name: "Parkinson's Disease" },
+    { id: 'nerve-pain',       name: 'Nerve Pain / Neuropathy' },
+    { id: 'memory-loss',      name: 'Memory Loss / Dementia' },
+    { id: 'spine-neuro',      name: 'Spinal Cord Issues' },
+  ],
+  gastro: [
+    { id: 'acidity',          name: 'Acidity / GERD' },
+    { id: 'liver-disease',    name: 'Liver Disease / Hepatitis' },
+    { id: 'gallstones',       name: 'Gallstones / Cholecystitis' },
+    { id: 'appendix',         name: 'Appendicitis' },
+    { id: 'ibs',              name: 'IBS / Crohn\'s Disease' },
+    { id: 'hernia',           name: 'Hernia' },
+    { id: 'pancreatitis',     name: 'Pancreatitis' },
+    { id: 'colonoscopy',      name: 'Colonoscopy / Endoscopy' },
+  ],
+  onco: [
+    { id: 'breast-cancer',    name: 'Breast Cancer' },
+    { id: 'lung-cancer',      name: 'Lung Cancer' },
+    { id: 'prostate-cancer',  name: 'Prostate Cancer' },
+    { id: 'blood-cancer',     name: 'Blood Cancer / Leukaemia' },
+    { id: 'cervical-cancer',  name: 'Cervical Cancer' },
+    { id: 'colon-cancer',     name: 'Colon / Rectal Cancer' },
+    { id: 'chemo',            name: 'Chemotherapy / Radiation' },
+    { id: 'oral-cancer',      name: 'Oral / Throat Cancer' },
+  ],
+  gynae: [
+    { id: 'delivery',         name: 'Normal / C-Section Delivery' },
+    { id: 'fibroid',          name: 'Fibroid / Myomectomy' },
+    { id: 'hysterectomy',     name: 'Hysterectomy' },
+    { id: 'pcos',             name: 'PCOS / Hormonal Issues' },
+    { id: 'infertility',      name: 'Infertility / IVF' },
+    { id: 'ectopic',          name: 'Ectopic Pregnancy' },
+    { id: 'menstrual',        name: 'Menstrual Disorders' },
+    { id: 'ovarian-cyst',     name: 'Ovarian Cyst' },
+  ],
+  paeds: [
+    { id: 'fever',            name: 'High Fever / Infections' },
+    { id: 'pneumonia',        name: 'Pneumonia / Respiratory' },
+    { id: 'vaccination',      name: 'Vaccination / Growth Check' },
+    { id: 'jaundice-baby',    name: 'Neonatal Jaundice' },
+    { id: 'diarrhoea',        name: 'Diarrhoea / Dehydration' },
+    { id: 'malnutrition',     name: 'Malnutrition / Growth Issues' },
+    { id: 'paeds-surgery',    name: 'Paediatric Surgery' },
+    { id: 'asthma-child',     name: 'Childhood Asthma' },
+  ],
+  ent: [
+    { id: 'tonsils',          name: 'Tonsillitis / Tonsillectomy' },
+    { id: 'hearing-loss',     name: 'Hearing Loss' },
+    { id: 'sinusitis',        name: 'Sinusitis / Nasal Polyps' },
+    { id: 'vertigo',          name: 'Vertigo / Dizziness' },
+    { id: 'adenoids',         name: 'Adenoids' },
+    { id: 'ear-infection',    name: 'Ear Infection / Discharge' },
+    { id: 'voice-issues',     name: 'Voice / Throat Problems' },
+    { id: 'nose-bleed',       name: 'Nose Bleed / Deviated Septum' },
+  ],
+  ophthal: [
+    { id: 'cataract',         name: 'Cataract Surgery' },
+    { id: 'lasik',            name: 'LASIK / Refractive Surgery' },
+    { id: 'glaucoma',         name: 'Glaucoma' },
+    { id: 'retina',           name: 'Retinal Detachment / Macular' },
+    { id: 'diabetic-eye',     name: 'Diabetic Retinopathy' },
+    { id: 'squint',           name: 'Squint / Strabismus' },
+    { id: 'cornea',           name: 'Corneal Disorder / Transplant' },
+    { id: 'dry-eyes',         name: 'Dry Eyes / Conjunctivitis' },
+  ],
+  derma: [
+    { id: 'psoriasis',        name: 'Psoriasis' },
+    { id: 'eczema',           name: 'Eczema / Dermatitis' },
+    { id: 'acne',             name: 'Acne / Pigmentation' },
+    { id: 'hair-loss',        name: 'Hair Loss / Alopecia' },
+    { id: 'skin-allergy',     name: 'Skin Allergy / Urticaria' },
+    { id: 'vitiligo',         name: 'Vitiligo' },
+    { id: 'fungal',           name: 'Fungal Infection' },
+    { id: 'skin-biopsy',      name: 'Skin Biopsy / Mole Removal' },
+  ],
+  nephro: [
+    { id: 'kidney-stones',    name: 'Kidney Stones' },
+    { id: 'ckd',              name: 'Chronic Kidney Disease (CKD)' },
+    { id: 'dialysis',         name: 'Dialysis' },
+    { id: 'kidney-transplant',name: 'Kidney Transplant' },
+    { id: 'uti',              name: 'Urinary Tract Infection (UTI)' },
+    { id: 'nephrotic',        name: 'Nephrotic Syndrome' },
+    { id: 'renal-failure',    name: 'Acute Renal Failure' },
+  ],
+  pulmo: [
+    { id: 'asthma',           name: 'Asthma' },
+    { id: 'copd',             name: 'COPD / Bronchitis' },
+    { id: 'tb',               name: 'Tuberculosis (TB)' },
+    { id: 'pneumonia-adult',  name: 'Pneumonia' },
+    { id: 'sleep-apnea',      name: 'Sleep Apnea' },
+    { id: 'pleural',          name: 'Pleural Effusion' },
+    { id: 'ild',              name: 'Interstitial Lung Disease (ILD)' },
+    { id: 'lung-infection',   name: 'Lung Infection / Bronchiectasis' },
+  ],
+  urology: [
+    { id: 'prostate',         name: 'Prostate Enlargement / BPH' },
+    { id: 'bladder',          name: 'Bladder Issues / Incontinence' },
+    { id: 'kidney-stone-uro', name: 'Kidney / Ureteric Stones' },
+    { id: 'uti-uro',          name: 'Recurrent UTI' },
+    { id: 'infertility-m',    name: 'Male Infertility' },
+    { id: 'circumcision',     name: 'Circumcision / Phimosis' },
+    { id: 'varicocele',       name: 'Varicocele' },
+    { id: 'uro-cancer',       name: 'Urological Cancer' },
+  ],
+  psych: [
+    { id: 'depression',       name: 'Depression / Anxiety' },
+    { id: 'schizophrenia',    name: 'Schizophrenia' },
+    { id: 'bipolar',          name: 'Bipolar Disorder' },
+    { id: 'addiction',        name: 'De-addiction / Substance Abuse' },
+    { id: 'ocd',              name: 'OCD' },
+    { id: 'ptsd',             name: 'PTSD / Trauma' },
+    { id: 'sleep-disorder',   name: 'Sleep Disorder / Insomnia' },
+    { id: 'eating-disorder',  name: 'Eating Disorder' },
+  ],
+  'gen-surgery': [
+    { id: 'appendix-surg',   name: 'Appendicitis / Appendectomy' },
+    { id: 'hernia-surg',     name: 'Hernia Repair' },
+    { id: 'gallbladder',     name: 'Gallbladder Removal (Lap)' },
+    { id: 'piles',           name: 'Piles / Fistula / Fissure' },
+    { id: 'varicose',        name: 'Varicose Veins' },
+    { id: 'wound',           name: 'Wound / Abscess / Trauma' },
+    { id: 'lipoma',          name: 'Lipoma / Cyst Removal' },
+    { id: 'thyroid-surg',    name: 'Thyroid Surgery' },
+  ],
+  'gen-med': [
+    { id: 'diabetes',        name: 'Diabetes Management' },
+    { id: 'typhoid',         name: 'Typhoid / Viral Fever' },
+    { id: 'dengue',          name: 'Dengue / Malaria' },
+    { id: 'anaemia',         name: 'Anaemia' },
+    { id: 'thyroid',         name: 'Thyroid Disorder' },
+    { id: 'jaundice',        name: 'Jaundice / Liver Issues' },
+    { id: 'bp',              name: 'Blood Pressure / Hypertension' },
+    { id: 'general-checkup', name: 'General Health Check-up' },
+  ],
+};
+
 const HOSPITALS = [
   {
     id: 1,
@@ -426,12 +607,15 @@ const HOSPITALS = [
 /* ==============================
    DOM REFS
    ============================== */
-const stateSelect    = document.getElementById('stateSelect');
-const citySelect     = document.getElementById('citySelect');
-const insurerSelect  = document.getElementById('insurerSelect');
-const tpaSelect      = document.getElementById('tpaSelect');
-const tpaWrap        = document.getElementById('tpaWrap');
-const searchBtn      = document.getElementById('searchBtn');
+const stateSelect     = document.getElementById('stateSelect');
+const citySelect      = document.getElementById('citySelect');
+const insurerSelect   = document.getElementById('insurerSelect');
+const tpaSelect       = document.getElementById('tpaSelect');
+const tpaWrap         = document.getElementById('tpaWrap');
+const deptSelect      = document.getElementById('deptSelect');
+const complaintSelect = document.getElementById('complaintSelect');
+const complaintWrap   = document.getElementById('complaintWrap');
+const searchBtn       = document.getElementById('searchBtn');
 const resetBtn       = document.getElementById('resetBtn');
 const resultsSection = document.getElementById('resultsSection');
 const resultsCount   = document.getElementById('resultsCount');
@@ -456,6 +640,7 @@ function populateSelect(selectEl, items, defaultLabel) {
 (function init() {
   populateSelect(stateSelect, STATES, 'Select State');
   populateSelect(insurerSelect, INSURERS, 'All Insurance Companies');
+  populateSelect(deptSelect, DEPARTMENTS, 'All Departments');
 })();
 
 
@@ -490,19 +675,39 @@ insurerSelect.addEventListener('change', function () {
 
 
 /* ==============================
+   DEPT → SHOW/HIDE COMPLAINT
+   ============================== */
+deptSelect.addEventListener('change', function () {
+  const deptId = this.value;
+  if (deptId && COMPLAINTS_BY_DEPT[deptId]) {
+    populateSelect(complaintSelect, COMPLAINTS_BY_DEPT[deptId], 'All Complaints');
+    complaintWrap.style.display = '';
+  } else {
+    complaintSelect.value = '';
+    complaintWrap.style.display = 'none';
+  }
+});
+
+
+/* ==============================
    SEARCH LOGIC
    ============================== */
 searchBtn.addEventListener('click', function () {
-  const stateVal    = stateSelect.value;
-  const cityVal     = citySelect.value;
-  const insurerVal  = insurerSelect.value;
-  const tpaVal      = tpaSelect.value;
+  const stateVal     = stateSelect.value;
+  const cityVal      = citySelect.value;
+  const insurerVal   = insurerSelect.value;
+  const tpaVal       = tpaSelect.value;
+  const deptVal      = deptSelect.value;
+  const complaintVal = complaintSelect.value;
 
   let filtered = HOSPITALS.filter(h => {
     if (stateVal    && h.state    !== stateVal)    return false;
     if (cityVal     && h.city     !== cityVal)     return false;
     if (insurerVal  && !h.insurers.includes(insurerVal)) return false;
     if (tpaVal      && !h.tpa.includes(tpaVal))   return false;
+    if (deptVal     && !h.specialties.some(s => s.toLowerCase().includes(
+          DEPARTMENTS.find(d => d.id === deptVal)?.name.toLowerCase().split(' ')[0] || ''
+        ))) return false;
     return true;
   });
 
@@ -510,8 +715,10 @@ searchBtn.addEventListener('click', function () {
   const locationParts = [];
   if (cityVal)          locationParts.push(getLabel(CITIES_BY_STATE[stateVal] || [], cityVal));
   else if (stateVal)    locationParts.push(getLabel(STATES, stateVal));
-  if (insurerVal)  locationParts.push(getLabel(INSURERS, insurerVal));
-  if (tpaVal)      locationParts.push(getLabel(TPAS, tpaVal));
+  if (insurerVal)       locationParts.push(getLabel(INSURERS, insurerVal));
+  if (tpaVal)           locationParts.push(getLabel(TPAS, tpaVal));
+  if (deptVal)          locationParts.push(getLabel(DEPARTMENTS, deptVal));
+  if (complaintVal)     locationParts.push(getLabel(COMPLAINTS_BY_DEPT[deptVal] || [], complaintVal));
   const locationText = locationParts.filter(Boolean).join(' · ');
 
   // Show results section
@@ -545,6 +752,10 @@ resetBtn.addEventListener('click', function () {
   insurerSelect.value = '';
   tpaSelect.value = '';
   tpaWrap.style.display = 'none';
+  populateSelect(deptSelect, DEPARTMENTS, 'All Departments');
+  deptSelect.value = '';
+  complaintSelect.value = '';
+  complaintWrap.style.display = 'none';
   resultsSection.classList.remove('visible');
   noResults.classList.remove('visible');
   resultsGrid.innerHTML = '';
