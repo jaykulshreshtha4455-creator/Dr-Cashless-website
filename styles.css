@@ -117,11 +117,13 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .header-inner {
   display: flex; align-items: center; justify-content: space-between;
   height: 64px; max-width: var(--max); margin: 0 auto; padding: 0 20px;
+  position: relative;
 }
 
 .brand {
   display: flex; align-items: center; gap: 10px;
   font-size: 18px; color: #fff; font-weight: 400;
+  position: absolute; left: 50%; transform: translateX(-50%);
 }
 .brand-icon {
   width: 34px; height: 34px;

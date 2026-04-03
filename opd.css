@@ -1,0 +1,353 @@
+/*
+ * DR. CASHLESS — opd.css
+ * Styles for the OPD Booking page
+ */
+
+/* ==============================
+   STEP INDICATOR
+   ============================== */
+.opd-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 32px 20px 0;
+  position: relative;
+  top: -40px;
+  margin-bottom: -16px;
+}
+.opd-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+.opd-step-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.opd-step.active .opd-step-dot {
+  background: var(--orange);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(242, 92, 8, 0.35);
+}
+.opd-step.done .opd-step-dot {
+  background: #1a1a1a;
+  color: #fff;
+}
+.opd-step-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: color 0.3s;
+}
+.opd-step.active .opd-step-label,
+.opd-step.done  .opd-step-label { color: var(--black); }
+
+.opd-step-line {
+  flex: 1;
+  height: 2px;
+  background: #e8e8e8;
+  max-width: 80px;
+  margin-bottom: 24px;
+  transition: background 0.3s;
+}
+.opd-step-line.done { background: #1a1a1a; }
+
+
+/* ==============================
+   INPUT FIELDS
+   ============================== */
+.input-wrap input,
+.input-wrap textarea {
+  width: 100%;
+  background: var(--off);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  resize: none;
+}
+.input-wrap input::placeholder,
+.input-wrap textarea::placeholder { color: var(--muted); }
+.input-wrap input:focus,
+.input-wrap textarea:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(242, 92, 8, 0.12);
+}
+.input-wrap input.error,
+.input-wrap textarea.error {
+  border-color: #e03e3e;
+  box-shadow: 0 0 0 3px rgba(224, 62, 62, 0.1);
+}
+.select-wrap select.error {
+  border-color: #e03e3e;
+  box-shadow: 0 0 0 3px rgba(224, 62, 62, 0.1);
+}
+
+
+/* ==============================
+   DATE PICKER GRID
+   ============================== */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+@media (max-width: 480px) {
+  .date-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.date-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border);
+  background: var(--off);
+  cursor: pointer;
+  transition: all 0.18s;
+  user-select: none;
+}
+.date-chip:hover { border-color: var(--orange); background: rgba(242,92,8,0.06); }
+.date-chip.selected {
+  background: var(--orange);
+  border-color: var(--orange);
+  box-shadow: 0 4px 14px rgba(242,92,8,0.3);
+}
+.date-chip-day {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.date-chip-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1;
+}
+.date-chip-mon {
+  font-size: 10px;
+  color: var(--muted);
+}
+.date-chip.selected .date-chip-day,
+.date-chip.selected .date-chip-num,
+.date-chip.selected .date-chip-mon { color: #fff; }
+
+
+/* ==============================
+   TIME SLOTS
+   ============================== */
+.slot-group-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.slot-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.slot-chip {
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: var(--off);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+  cursor: pointer;
+  transition: all 0.18s;
+  user-select: none;
+}
+.slot-chip:hover { border-color: var(--orange); background: rgba(242,92,8,0.06); }
+.slot-chip.selected {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(242,92,8,0.3);
+}
+
+
+/* ==============================
+   NAVIGATION ROW
+   ============================== */
+.opd-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+.opd-next-btn {
+  flex: 1;
+  margin-top: 0;
+}
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.2s;
+}
+.btn-back:hover { border-color: #bbb; }
+
+
+/* ==============================
+   CONFIRM CARD
+   ============================== */
+.confirm-heading {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 22px;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.confirm-card {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+.confirm-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 10px 0;
+}
+.confirm-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--orange-dim);
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.confirm-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 2px;
+}
+.confirm-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--black);
+  line-height: 1.4;
+}
+.confirm-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+
+/* ==============================
+   NOTE BOX
+   ============================== */
+.opd-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(242, 92, 8, 0.07);
+  border: 1px solid rgba(242, 92, 8, 0.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--black);
+  line-height: 1.6;
+  margin-top: 20px;
+}
+.opd-note i { color: var(--orange); margin-top: 2px; flex-shrink: 0; }
+
+
+/* ==============================
+   SUCCESS STATE
+   ============================== */
+.success-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0 8px;
+}
+.success-icon {
+  font-size: 64px;
+  color: #22c55e;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.success-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 28px;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.success-desc {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin-bottom: 16px;
+}
+.success-ref {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange);
+  background: var(--orange-dim);
+  border: 1px solid rgba(242,92,8,0.25);
+  border-radius: 50px;
+  padding: 6px 18px;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+}

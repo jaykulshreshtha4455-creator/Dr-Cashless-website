@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book OPD Appointment — Dr. Cashless</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="opd.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- DRAWER -->
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-brand">
+        <div class="d-mark"><i class="fas fa-heart-pulse"></i></div>
+        <div>
+          <div class="d-name">Dr. Cashless</div>
+          <div class="d-sub">Health Made Simple</div>
+        </div>
+      </div>
+      <button class="close-btn" id="closeBtn"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="index.html#home"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="index.html#services"><i class="fas fa-grid-2"></i> Services</a></li>
+      <li><a href="search.html"><i class="fas fa-magnifying-glass"></i> Find Hospital</a></li>
+      <li><a href="opd.html" class="drawer-active"><i class="fas fa-calendar-check"></i> Book OPD</a></li>
+      <li><a href="index.html#how"><i class="fas fa-list-check"></i> How It Works</a></li>
+      <li><a href="index.html#contact"><i class="fas fa-phone"></i> Contact</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a href="tel:+919026320900" class="d-cta">
+        <i class="fas fa-phone"></i> Get a Free Call
+      </a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-heart-pulse"></i></div>
+        Dr. <strong>Cashless</strong>
+      </a>
+      <nav class="desk-nav">
+        <a href="index.html#services">Services</a>
+        <a href="search.html">Find Hospital</a>
+        <a href="opd.html" class="desk-nav-active">Book OPD</a>
+        <a href="index.html#why">Why Us</a>
+      </nav>
+      <a href="tel:+919026320900" class="header-btn">Get a Call</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- OPD HERO -->
+    <section class="search-hero">
+      <div class="search-hero-inner">
+        <div class="section-chip">OPD Booking</div>
+        <h1 class="search-hero-title">Book an <em>OPD</em> Appointment</h1>
+      </div>
+    </section>
+
+    <!-- BOOKING SECTION -->
+    <section class="search-section">
+      <div class="container">
+
+        <!-- STEP INDICATOR -->
+        <div class="opd-steps" id="opdSteps">
+          <div class="opd-step active" id="stepDot1">
+            <div class="opd-step-dot">1</div>
+            <div class="opd-step-label">Details</div>
+          </div>
+          <div class="opd-step-line"></div>
+          <div class="opd-step" id="stepDot2">
+            <div class="opd-step-dot">2</div>
+            <div class="opd-step-label">Schedule</div>
+          </div>
+          <div class="opd-step-line"></div>
+          <div class="opd-step" id="stepDot3">
+            <div class="opd-step-dot">3</div>
+            <div class="opd-step-label">Confirm</div>
+          </div>
+        </div>
+
+        <!-- BOOKING CARD -->
+        <div class="search-card opd-card">
+
+          <!-- ========================
+               STEP 1: Patient & Dept
+               ======================== -->
+          <div class="opd-panel" id="panel1">
+
+            <!-- Patient Info -->
+            <div class="form-block">
+              <div class="form-block-title">
+                <div class="form-block-icon"><i class="fas fa-user"></i></div>
+                <div>
+                  <div class="form-block-label">Patient Details</div>
+                  <div class="form-block-hint">Who is this appointment for?</div>
+                </div>
+              </div>
+              <div class="form-row form-row--2">
+                <div class="input-wrap">
+                  <input type="text" id="patientName" placeholder="Full Name" autocomplete="name" />
+                </div>
+                <div class="input-wrap">
+                  <input type="tel" id="patientPhone" placeholder="Mobile Number" maxlength="10" inputmode="numeric" />
+                </div>
+              </div>
+              <div class="form-row form-row--2" style="margin-top:14px">
+                <div class="input-wrap">
+                  <input type="number" id="patientAge" placeholder="Age" min="1" max="120" />
+                </div>
+                <div class="select-wrap">
+                  <select id="patientGender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Department & Complaint -->
+            <div class="form-block">
+              <div class="form-block-title">
+                <div class="form-block-icon"><i class="fas fa-stethoscope"></i></div>
+                <div>
+                  <div class="form-block-label">Department & Complaint</div>
+                  <div class="form-block-hint">What do you need help with?</div>
+                </div>
+              </div>
+              <div class="form-row form-row--1">
+                <div class="select-wrap">
+                  <select id="opdDept">
+                    <option value="">Select Department</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+              <div class="form-row form-row--1" id="opdComplaintWrap" style="display:none; margin-top:14px">
+                <div class="select-wrap">
+                  <select id="opdComplaint">
+                    <option value="">Select Complaint</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+              <div class="form-row form-row--1" style="margin-top:14px">
+                <div class="input-wrap">
+                  <textarea id="patientNotes" placeholder="Any additional notes for the doctor (optional)" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Location -->
+            <div class="form-block">
+              <div class="form-block-title">
+                <div class="form-block-icon"><i class="fas fa-location-dot"></i></div>
+                <div>
+                  <div class="form-block-label">Location</div>
+                  <div class="form-block-hint">Where are you looking for an OPD?</div>
+                </div>
+              </div>
+              <div class="form-row form-row--2">
+                <div class="select-wrap">
+                  <select id="opdState">
+                    <option value="">Select State</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+                <div class="select-wrap">
+                  <select id="opdCity" disabled>
+                    <option value="">Select City</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+            </div>
+
+            <button class="search-btn" id="nextBtn1">
+              Continue to Schedule <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <!-- /STEP 1 -->
+
+          <!-- ========================
+               STEP 2: Date & Time
+               ======================== -->
+          <div class="opd-panel" id="panel2" style="display:none">
+
+            <div class="form-block">
+              <div class="form-block-title">
+                <div class="form-block-icon"><i class="fas fa-calendar"></i></div>
+                <div>
+                  <div class="form-block-label">Preferred Date</div>
+                  <div class="form-block-hint">Choose a date for your appointment</div>
+                </div>
+              </div>
+              <div class="date-grid" id="dateGrid"></div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <div class="form-block">
+              <div class="form-block-title">
+                <div class="form-block-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                  <div class="form-block-label">Preferred Time Slot</div>
+                  <div class="form-block-hint">Select a convenient time</div>
+                </div>
+              </div>
+              <div class="slot-group">
+                <div class="slot-group-label"><i class="fas fa-sun"></i> Morning</div>
+                <div class="slot-row" id="slotsAM"></div>
+              </div>
+              <div class="slot-group" style="margin-top:20px">
+                <div class="slot-group-label"><i class="fas fa-cloud-sun"></i> Afternoon</div>
+                <div class="slot-row" id="slotsPM"></div>
+              </div>
+              <div class="slot-group" style="margin-top:20px">
+                <div class="slot-group-label"><i class="fas fa-moon"></i> Evening</div>
+                <div class="slot-row" id="slotsEve"></div>
+              </div>
+            </div>
+
+            <div class="opd-nav-row">
+              <button class="btn-back" id="backBtn1"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="search-btn opd-next-btn" id="nextBtn2">
+                Review Booking <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /STEP 2 -->
+
+          <!-- ========================
+               STEP 3: Confirm
+               ======================== -->
+          <div class="opd-panel" id="panel3" style="display:none">
+
+            <div class="confirm-heading">Review your appointment</div>
+
+            <div class="confirm-card">
+              <div class="confirm-row">
+                <div class="confirm-icon"><i class="fas fa-user"></i></div>
+                <div>
+                  <div class="confirm-label">Patient</div>
+                  <div class="confirm-val" id="cName">—</div>
+                </div>
+              </div>
+              <div class="confirm-row">
+                <div class="confirm-icon"><i class="fas fa-phone"></i></div>
+                <div>
+                  <div class="confirm-label">Mobile</div>
+                  <div class="confirm-val" id="cPhone">—</div>
+                </div>
+              </div>
+              <div class="confirm-row">
+                <div class="confirm-icon"><i class="fas fa-person"></i></div>
+                <div>
+                  <div class="confirm-label">Age / Gender</div>
+                  <div class="confirm-val" id="cAgeGender">—</div>
+                </div>
+              </div>
+              <div class="confirm-divider"></div>
+              <div class="confirm-row">
+                <div class="confirm-icon"><i class="fas fa-stethoscope"></i></div>
+                <div>
+                  <div class="confirm-label">Department</div>
+                  <div class="confirm-val" id="cDept">—</div>
+                </div>
+              </div>
+              <div class="confirm-row" id="cComplaintRow">
+                <div class="confirm-icon"><i class="fas fa-notes-medical"></i></div>
+                <div>
+                  <div class="confirm-label">Complaint</div>
+                  <div class="confirm-val" id="cComplaint">—</div>
+                </div>
+              </div>
+              <div class="confirm-row" id="cNotesRow">
+                <div class="confirm-icon"><i class="fas fa-comment-medical"></i></div>
+                <div>
+                  <div class="confirm-label">Notes</div>
+                  <div class="confirm-val" id="cNotes">—</div>
+                </div>
+              </div>
+              <div class="confirm-divider"></div>
+              <div class="confirm-row">
+                <div class="confirm-icon"><i class="fas fa-location-dot"></i></div>
+                <div>
+                  <div class="confirm-label">Location</div>
+                  <div class="confirm-val" id="cLocation">—</div>
+                </div>
+              </div>
+              <div class="confirm-row">
+                <div class="confirm-icon"><i class="fas fa-calendar-check"></i></div>
+                <div>
+                  <div class="confirm-label">Date & Time</div>
+                  <div class="confirm-val" id="cDateTime">—</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="opd-note">
+              <i class="fas fa-circle-info"></i>
+              Our team will confirm your appointment within 30 minutes and share hospital details via call/WhatsApp.
+            </div>
+
+            <div class="opd-nav-row">
+              <button class="btn-back" id="backBtn2"><i class="fas fa-arrow-left"></i> Back</button>
+              <button class="search-btn opd-next-btn" id="confirmBtn">
+                <i class="fas fa-calendar-check"></i> Confirm Appointment
+              </button>
+            </div>
+          </div>
+          <!-- /STEP 3 -->
+
+          <!-- ========================
+               SUCCESS STATE
+               ======================== -->
+          <div class="opd-panel" id="panelSuccess" style="display:none">
+            <div class="success-wrap">
+              <div class="success-icon"><i class="fas fa-circle-check"></i></div>
+              <h2 class="success-title">Appointment Requested!</h2>
+              <p class="success-desc">Thank you, <strong id="sName">—</strong>. Our team will call you within 30 minutes to confirm your OPD appointment and share hospital details.</p>
+              <div class="success-ref" id="sRef"></div>
+              <div class="success-actions">
+                <a href="tel:+919026320900" class="search-btn" style="text-decoration:none; margin-top:0; max-width:280px">
+                  <i class="fas fa-phone"></i> Call Us Now
+                </a>
+                <a href="search.html" class="btn-back" style="margin-top:0">
+                  <i class="fas fa-magnifying-glass"></i> Find a Hospital
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- /SUCCESS -->
+
+        </div>
+        <!-- /BOOKING CARD -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <div class="footer-mark"><i class="fas fa-heart-pulse"></i></div>
+            <span>Dr. <strong>Cashless</strong></span>
+          </div>
+          <p class="footer-tagline">Health Made Simple.<br />India's #1 cashless hospital finder.</p>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Services</div>
+          <ul>
+            <li><a href="index.html#services">Cashless Facility</a></li>
+            <li><a href="index.html#services">Reimbursement</a></li>
+            <li><a href="index.html#services">Insurance Coverage</a></li>
+            <li><a href="opd.html">Book OPD</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:+919026320900">+91 90263 20900</a></li>
+            <li><a href="tel:05102441111">0510-2441111</a></li>
+            <li>Available 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Dr. Cashless. All rights reserved.</span>
+        <span>Your trusted health insurance partner.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CALL BTN -->
+  <a href="tel:+919026320900" class="fab" aria-label="Call now">
+    <i class="fas fa-phone"></i>
+  </a>
+
+  <script src="app.js?v=2"></script>
+  <script src="opd.js?v=1"></script>
+</body>
+</html>
