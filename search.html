@@ -69,7 +69,6 @@
       <div class="search-hero-inner">
         <div class="section-chip">Hospital Finder</div>
         <h1 class="search-hero-title">Find a <em>Cashless</em> Hospital Near You</h1>
-        <p class="search-hero-desc">Search from 500+ empanelled hospitals across India. Filter by location, insurance company, or TPA — and get admitted without paying a rupee upfront.</p>
       </div>
     </section>
 
@@ -88,19 +87,13 @@
               </div>
               <div>
                 <div class="form-block-label">Location</div>
-                <div class="form-block-hint">Select your state, district, and city</div>
+                <div class="form-block-hint">Select your state and city</div>
               </div>
             </div>
-            <div class="form-row form-row--3">
+            <div class="form-row form-row--2">
               <div class="select-wrap">
                 <select id="stateSelect">
                   <option value="">Select State</option>
-                </select>
-                <i class="fas fa-chevron-down select-arrow"></i>
-              </div>
-              <div class="select-wrap">
-                <select id="districtSelect" disabled>
-                  <option value="">Select District</option>
                 </select>
                 <i class="fas fa-chevron-down select-arrow"></i>
               </div>
@@ -126,13 +119,15 @@
                 <div class="form-block-hint">Select your insurer or TPA (optional)</div>
               </div>
             </div>
-            <div class="form-row form-row--2">
+            <div class="form-row form-row--1">
               <div class="select-wrap">
                 <select id="insurerSelect">
                   <option value="">All Insurance Companies</option>
                 </select>
                 <i class="fas fa-chevron-down select-arrow"></i>
               </div>
+            </div>
+            <div class="form-row form-row--1" id="tpaWrap" style="display:none">
               <div class="select-wrap">
                 <select id="tpaSelect">
                   <option value="">All TPAs</option>
