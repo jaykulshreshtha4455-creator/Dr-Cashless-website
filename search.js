@@ -19,6 +19,22 @@ const STATES = [
   { id: 'br',    name: 'Bihar' },
 ];
 
+// Flat city list per state (no district step)
+const CITIES_BY_STATE = {
+  up:    [{ id: 'banda-city', name: 'Banda' }, { id: 'kanpur-nagar', name: 'Kanpur' }, { id: 'lucknow-city', name: 'Lucknow' }, { id: 'civil-lines', name: 'Prayagraj' }, { id: 'varanasi-city', name: 'Varanasi' }, { id: 'agra-city', name: 'Agra' }, { id: 'gorakhpur-city', name: 'Gorakhpur' }, { id: 'meerut-city', name: 'Meerut' }, { id: 'bareilly-city', name: 'Bareilly' }],
+  delhi: [{ id: 'saket', name: 'South Delhi' }, { id: 'new-delhi-centre', name: 'New Delhi' }, { id: 'connaught-place', name: 'Central Delhi' }, { id: 'model-town', name: 'North Delhi' }, { id: 'preet-vihar', name: 'East Delhi' }, { id: 'janakpuri', name: 'West Delhi' }],
+  mh:    [{ id: 'andheri', name: 'Mumbai' }, { id: 'bandra', name: 'Bandra' }, { id: 'shivajinagar', name: 'Pune' }, { id: 'nagpur-city', name: 'Nagpur' }, { id: 'nashik-city', name: 'Nashik' }, { id: 'thane-city', name: 'Thane' }],
+  rj:    [{ id: 'jaipur-city', name: 'Jaipur' }, { id: 'jodhpur-city', name: 'Jodhpur' }, { id: 'udaipur-city', name: 'Udaipur' }, { id: 'kota-city', name: 'Kota' }],
+  mp:    [{ id: 'bhopal-city', name: 'Bhopal' }, { id: 'indore-city', name: 'Indore' }, { id: 'gwalior-city', name: 'Gwalior' }, { id: 'jabalpur-city', name: 'Jabalpur' }],
+  hr:    [{ id: 'gurgaon-city', name: 'Gurgaon' }, { id: 'faridabad-city', name: 'Faridabad' }, { id: 'ambala-city', name: 'Ambala' }, { id: 'rohtak-city', name: 'Rohtak' }],
+  wb:    [{ id: 'kolkata-city', name: 'Kolkata' }, { id: 'howrah-city', name: 'Howrah' }, { id: 'darjeeling-town', name: 'Darjeeling' }],
+  tn:    [{ id: 'chennai-city', name: 'Chennai' }, { id: 'coimbatore-city', name: 'Coimbatore' }, { id: 'madurai-city', name: 'Madurai' }],
+  ka:    [{ id: 'koramangala', name: 'Bengaluru' }, { id: 'mysuru-city', name: 'Mysuru' }, { id: 'hubli-city', name: 'Hubli' }],
+  gj:    [{ id: 'ahmedabad-city', name: 'Ahmedabad' }, { id: 'surat-city', name: 'Surat' }, { id: 'vadodara-city', name: 'Vadodara' }],
+  pb:    [{ id: 'amritsar-city', name: 'Amritsar' }, { id: 'ludhiana-city', name: 'Ludhiana' }, { id: 'jalandhar-city', name: 'Jalandhar' }],
+  br:    [{ id: 'patna-city', name: 'Patna' }, { id: 'gaya-city', name: 'Gaya' }, { id: 'muzaffarpur-city', name: 'Muzaffarpur' }],
+};
+
 const DISTRICTS = {
   up: [
     { id: 'banda',      name: 'Banda' },
@@ -163,22 +179,23 @@ const CITIES = {
   muzaffarpur:  [{ id: 'muzaffarpur-city', name: 'Muzaffarpur City' }, { id: 'kanti', name: 'Kanti' }],
 };
 
+// tpas: [] = in-house settlement (no TPA dropdown needed)
 const INSURERS = [
-  { id: 'star',        name: 'Star Health Insurance' },
-  { id: 'hdfc',        name: 'HDFC Ergo Health' },
-  { id: 'new-india',   name: 'New India Assurance' },
-  { id: 'united',      name: 'United India Insurance' },
-  { id: 'oriental',    name: 'Oriental Insurance' },
-  { id: 'national',    name: 'National Insurance' },
-  { id: 'icici',       name: 'ICICI Lombard' },
-  { id: 'bajaj',       name: 'Bajaj Allianz' },
-  { id: 'care',        name: 'Care Health Insurance' },
-  { id: 'aditya',      name: 'Aditya Birla Health' },
-  { id: 'niva',        name: 'Niva Bupa' },
-  { id: 'sbi',         name: 'SBI General' },
-  { id: 'tata',        name: 'Tata AIG' },
-  { id: 'future',      name: 'Future Generali' },
-  { id: 'iffco',       name: 'IFFCO Tokio' },
+  { id: 'star',      name: 'Star Health Insurance',   tpas: [] },
+  { id: 'hdfc',      name: 'HDFC Ergo Health',        tpas: [] },
+  { id: 'care',      name: 'Care Health Insurance',   tpas: [] },
+  { id: 'aditya',    name: 'Aditya Birla Health',     tpas: [] },
+  { id: 'niva',      name: 'Niva Bupa',               tpas: [] },
+  { id: 'new-india', name: 'New India Assurance',     tpas: ['medi-assist', 'paramount', 'health-india', 'fhpl', 'good-health'] },
+  { id: 'united',    name: 'United India Insurance',  tpas: ['medi-assist', 'health-india', 'md-india', 'raksha'] },
+  { id: 'oriental',  name: 'Oriental Insurance',      tpas: ['medi-assist', 'vipul', 'ericson', 'dedicated'] },
+  { id: 'national',  name: 'National Insurance',      tpas: ['medi-assist', 'health-india', 'vipul', 'raksha', 'fhpl'] },
+  { id: 'icici',     name: 'ICICI Lombard',           tpas: ['medi-assist', 'md-india'] },
+  { id: 'bajaj',     name: 'Bajaj Allianz',           tpas: ['medi-assist', 'paramount', 'vipul'] },
+  { id: 'sbi',       name: 'SBI General',             tpas: ['medi-assist', 'fhpl', 'dedicated'] },
+  { id: 'tata',      name: 'Tata AIG',                tpas: ['medi-assist', 'paramount', 'ericson'] },
+  { id: 'future',    name: 'Future Generali',         tpas: ['health-india', 'vipul', 'good-health'] },
+  { id: 'iffco',     name: 'IFFCO Tokio',             tpas: ['medi-assist', 'paramount', 'health-india', 'raksha'] },
 ];
 
 const TPAS = [
@@ -410,10 +427,10 @@ const HOSPITALS = [
    DOM REFS
    ============================== */
 const stateSelect    = document.getElementById('stateSelect');
-const districtSelect = document.getElementById('districtSelect');
 const citySelect     = document.getElementById('citySelect');
 const insurerSelect  = document.getElementById('insurerSelect');
 const tpaSelect      = document.getElementById('tpaSelect');
+const tpaWrap        = document.getElementById('tpaWrap');
 const searchBtn      = document.getElementById('searchBtn');
 const resetBtn       = document.getElementById('resetBtn');
 const resultsSection = document.getElementById('resultsSection');
@@ -439,40 +456,35 @@ function populateSelect(selectEl, items, defaultLabel) {
 (function init() {
   populateSelect(stateSelect, STATES, 'Select State');
   populateSelect(insurerSelect, INSURERS, 'All Insurance Companies');
-  populateSelect(tpaSelect, TPAS, 'All TPAs');
 })();
 
 
 /* ==============================
-   CASCADE: STATE → DISTRICT → CITY
+   CASCADE: STATE → CITY
    ============================== */
 stateSelect.addEventListener('change', function () {
   const stateId = this.value;
-
-  // Reset district
-  districtSelect.innerHTML = '<option value="">Select District</option>';
-  districtSelect.disabled = true;
-
-  // Reset city
   citySelect.innerHTML = '<option value="">Select City</option>';
   citySelect.disabled = true;
-
-  if (stateId && DISTRICTS[stateId]) {
-    populateSelect(districtSelect, DISTRICTS[stateId], 'Select District');
-    districtSelect.disabled = false;
+  if (stateId && CITIES_BY_STATE[stateId]) {
+    populateSelect(citySelect, CITIES_BY_STATE[stateId], 'Select City');
+    citySelect.disabled = false;
   }
 });
 
-districtSelect.addEventListener('change', function () {
-  const districtId = this.value;
 
-  // Reset city
-  citySelect.innerHTML = '<option value="">Select City</option>';
-  citySelect.disabled = true;
-
-  if (districtId && CITIES[districtId]) {
-    populateSelect(citySelect, CITIES[districtId], 'Select City');
-    citySelect.disabled = false;
+/* ==============================
+   INSURER → SHOW/HIDE TPA
+   ============================== */
+insurerSelect.addEventListener('change', function () {
+  const insurer = INSURERS.find(i => i.id === this.value);
+  if (insurer && insurer.tpas.length > 0) {
+    const tpaItems = TPAS.filter(t => insurer.tpas.includes(t.id));
+    populateSelect(tpaSelect, tpaItems, 'All TPAs');
+    tpaWrap.style.display = '';
+  } else {
+    tpaSelect.value = '';
+    tpaWrap.style.display = 'none';
   }
 });
 
@@ -482,14 +494,12 @@ districtSelect.addEventListener('change', function () {
    ============================== */
 searchBtn.addEventListener('click', function () {
   const stateVal    = stateSelect.value;
-  const districtVal = districtSelect.value;
   const cityVal     = citySelect.value;
   const insurerVal  = insurerSelect.value;
   const tpaVal      = tpaSelect.value;
 
   let filtered = HOSPITALS.filter(h => {
     if (stateVal    && h.state    !== stateVal)    return false;
-    if (districtVal && h.district !== districtVal) return false;
     if (cityVal     && h.city     !== cityVal)     return false;
     if (insurerVal  && !h.insurers.includes(insurerVal)) return false;
     if (tpaVal      && !h.tpa.includes(tpaVal))   return false;
@@ -498,8 +508,7 @@ searchBtn.addEventListener('click', function () {
 
   // Build location label for results header
   const locationParts = [];
-  if (cityVal)     locationParts.push(getLabel(CITIES[districtVal] || [], cityVal));
-  else if (districtVal) locationParts.push(getLabel(DISTRICTS[stateVal] || [], districtVal));
+  if (cityVal)          locationParts.push(getLabel(CITIES_BY_STATE[stateVal] || [], cityVal));
   else if (stateVal)    locationParts.push(getLabel(STATES, stateVal));
   if (insurerVal)  locationParts.push(getLabel(INSURERS, insurerVal));
   if (tpaVal)      locationParts.push(getLabel(TPAS, tpaVal));
@@ -530,14 +539,12 @@ searchBtn.addEventListener('click', function () {
    ============================== */
 resetBtn.addEventListener('click', function () {
   stateSelect.value = '';
-  districtSelect.innerHTML = '<option value="">Select District</option>';
-  districtSelect.disabled = true;
   citySelect.innerHTML = '<option value="">Select City</option>';
   citySelect.disabled = true;
   populateSelect(insurerSelect, INSURERS, 'All Insurance Companies');
-  populateSelect(tpaSelect, TPAS, 'All TPAs');
   insurerSelect.value = '';
   tpaSelect.value = '';
+  tpaWrap.style.display = 'none';
   resultsSection.classList.remove('visible');
   noResults.classList.remove('visible');
   resultsGrid.innerHTML = '';
