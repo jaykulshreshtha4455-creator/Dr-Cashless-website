@@ -409,3 +409,61 @@
   transition: background 0.2s;
 }
 .cov-help-btn-secondary:hover { background: rgba(37,211,102,0.2); }
+
+/* ==============================
+   NO INSURANCE BANNER
+   ============================== */
+.cov-noins-card {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  border: 1px solid rgba(242,92,8,0.3);
+  border-radius: 20px;
+  padding: 24px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.cov-noins-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cov-noins-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--orange-dim);
+  border: 1px solid rgba(242,92,8,0.3);
+  color: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.cov-noins-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.cov-noins-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  max-width: 380px;
+}
+.cov-noins-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--orange);
+  color: #fff;
+  padding: 13px 26px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.cov-noins-btn:hover { opacity: 0.88; transform: translateY(-1px); }
