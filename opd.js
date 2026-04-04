@@ -196,8 +196,8 @@ function setStep(n) {
 opdState.addEventListener('change', function () {
   opdCity.innerHTML = '<option value="">Select City</option>';
   opdCity.disabled = true;
-  opdHospital.innerHTML = '<option value="">Select City first</option>';
-  opdHospital.disabled = true;
+  opdHospital.innerHTML = '<option value="">No preference (we\'ll assign best hospital)</option>';
+  opdHospital.disabled = false;
   hospitalCard.style.display = 'none';
   if (this.value && OPD_CITIES[this.value]) {
     populateOpdSelect(opdCity, OPD_CITIES[this.value], 'Select City');
@@ -209,15 +209,13 @@ opdState.addEventListener('change', function () {
 opdCity.addEventListener('change', function () {
   clearError(this);
   const cityId = this.value;
-  opdHospital.innerHTML = '<option value="">Select Hospital</option>';
+  opdHospital.innerHTML = '<option value="">No preference (we\'ll assign best hospital)</option>';
   hospitalCard.style.display = 'none';
-  if (!cityId) { opdHospital.disabled = true; return; }
-  const matches = OPD_HOSPITALS.filter(h => h.city === cityId);
-  if (matches.length === 0) {
-    opdHospital.innerHTML = '<option value="">No hospitals listed yet</option>';
-    opdHospital.disabled = true;
+  if (!cityId) {
+    opdHospital.disabled = false;
     return;
   }
+  const matches = OPD_HOSPITALS.filter(h => h.city === cityId);
   matches.forEach(h => {
     const o = document.createElement('option');
     o.value = h.id;
@@ -327,9 +325,8 @@ document.getElementById('nextBtn1').addEventListener('click', function () {
     else clearError(el);
   });
   if (!gender.value) { markError(gender); valid = false; } else clearError(gender);
-  if (!opdState.value)    { markError(opdState);    valid = false; } else clearError(opdState);
-  if (!opdDept.value)     { markError(opdDept);     valid = false; } else clearError(opdDept);
-  if (!opdHospital.value) { markError(opdHospital); valid = false; } else clearError(opdHospital);
+  if (!opdState.value) { markError(opdState); valid = false; } else clearError(opdState);
+  if (!opdDept.value)  { markError(opdDept);  valid = false; } else clearError(opdDept);
 
   if (phone.value && !/^\d{10}$/.test(phone.value.trim())) {
     markError(phone); valid = false;
