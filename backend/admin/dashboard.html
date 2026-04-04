@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Dr. Cashless Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sb-icon"><i class="fas fa-heart-pulse"></i></div>
+      <div>
+        <div class="sb-name">Dr. Cashless</div>
+        <div class="sb-sub">Admin Portal</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="sb-link active" data-tab="overview"><i class="fas fa-chart-pie"></i> Overview</a>
+      <a href="#" class="sb-link" data-tab="hospitals"><i class="fas fa-hospital"></i> Hospitals</a>
+      <a href="#" class="sb-link" data-tab="appointments"><i class="fas fa-calendar-check"></i> Appointments</a>
+      <a href="#" class="sb-link" data-tab="claims"><i class="fas fa-file-invoice-dollar"></i> Claims</a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="sb-user"><i class="fas fa-user-shield"></i> <span id="adminName">Admin</span></div>
+      <button class="sb-logout" onclick="logout()"><i class="fas fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-wrap">
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-title" id="tabTitle">Overview</div>
+      <div class="topbar-actions" id="topbarActions"></div>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <!-- ── OVERVIEW ── -->
+      <section class="tab-panel active" id="tab-overview">
+        <div class="stats-row" id="statsRow">
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fas fa-hospital"></i></div>
+            <div class="stat-val" id="s-hospitals">—</div>
+            <div class="stat-label">Active Hospitals</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fas fa-calendar-check"></i></div>
+            <div class="stat-val" id="s-today">—</div>
+            <div class="stat-label">Today's Appointments</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fas fa-calendar-alt"></i></div>
+            <div class="stat-val" id="s-appointments">—</div>
+            <div class="stat-label">Total Appointments</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon yellow"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="stat-val" id="s-claims">—</div>
+            <div class="stat-label">Total Claims</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red"><i class="fas fa-clock"></i></div>
+            <div class="stat-val" id="s-pending">—</div>
+            <div class="stat-label">Pending Claims</div>
+          </div>
+        </div>
+        <div class="overview-links">
+          <div class="ov-card" onclick="switchTab('appointments')">
+            <i class="fas fa-calendar-check"></i>
+            <span>View All Appointments</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+          <div class="ov-card" onclick="switchTab('claims')">
+            <i class="fas fa-file-invoice-dollar"></i>
+            <span>View Pending Claims</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+          <div class="ov-card" onclick="switchTab('hospitals')">
+            <i class="fas fa-hospital"></i>
+            <span>Manage Hospitals</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── HOSPITALS ── -->
+      <section class="tab-panel" id="tab-hospitals">
+        <div class="panel-toolbar">
+          <input type="text" class="search-input" id="hospSearch" placeholder="Search hospitals..." oninput="filterHospitals()" />
+          <button class="btn-primary" onclick="openHospitalModal()"><i class="fas fa-plus"></i> Add Hospital</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="hospTable">
+            <thead>
+              <tr>
+                <th>Hospital Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Type</th>
+                <th>Beds</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="hospBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── APPOINTMENTS ── -->
+      <section class="tab-panel" id="tab-appointments">
+        <div class="panel-toolbar">
+          <input type="text" class="search-input" id="apptSearch" placeholder="Search by name or phone..." oninput="loadAppointments()" />
+          <select class="filter-select" id="apptStatus" onchange="loadAppointments()">
+            <option value="">All Status</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="done">Done</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+          <input type="date" class="filter-select" id="apptDate" onchange="loadAppointments()" />
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="apptTable">
+            <thead>
+              <tr>
+                <th>Ref</th>
+                <th>Patient</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Hospital</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="apptBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ── CLAIMS ── -->
+      <section class="tab-panel" id="tab-claims">
+        <div class="panel-toolbar">
+          <input type="text" class="search-input" id="claimSearch" placeholder="Search by name, phone or ref..." oninput="loadClaims()" />
+          <select class="filter-select" id="claimStatus" onchange="loadClaims()">
+            <option value="">All Status</option>
+            <option value="submitted">Submitted</option>
+            <option value="processing">Processing</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="claimTable">
+            <thead>
+              <tr>
+                <th>Ref</th>
+                <th>Patient</th>
+                <th>Phone</th>
+                <th>Insurer</th>
+                <th>Hospital</th>
+                <th>Claim Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="claimBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ── HOSPITAL MODAL ── -->
+  <div class="modal-overlay" id="hospModalOverlay" onclick="closeHospitalModal()"></div>
+  <div class="modal" id="hospModal">
+    <div class="modal-header">
+      <div class="modal-title" id="hospModalTitle">Add Hospital</div>
+      <button class="modal-close" onclick="closeHospitalModal()"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="hm_id" />
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Hospital Name *</label>
+          <input type="text" id="hm_name" placeholder="Full hospital name" />
+        </div>
+      </div>
+      <div class="modal-row modal-row--2">
+        <div class="mfield">
+          <label>State *</label>
+          <select id="hm_state" onchange="loadModalCities()">
+            <option value="">Select State</option>
+          </select>
+        </div>
+        <div class="mfield">
+          <label>City *</label>
+          <select id="hm_city">
+            <option value="">Select City</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-row modal-row--2">
+        <div class="mfield">
+          <label>Type</label>
+          <select id="hm_type">
+            <option value="Multi-Specialty">Multi-Specialty</option>
+            <option value="Super-Specialty">Super-Specialty</option>
+            <option value="Government">Government</option>
+            <option value="Clinic">Clinic</option>
+            <option value="Nursing Home">Nursing Home</option>
+          </select>
+        </div>
+        <div class="mfield">
+          <label>Beds</label>
+          <input type="number" id="hm_beds" placeholder="e.g. 200" min="1" />
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Address</label>
+          <input type="text" id="hm_address" placeholder="Full address" />
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Phone</label>
+          <input type="text" id="hm_phone" value="+91 7999868659" />
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Accepted Insurers</label>
+          <div class="checkbox-grid" id="hm_insurers"></div>
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Departments</label>
+          <div class="checkbox-grid" id="hm_depts"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeHospitalModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveHospital()">Save Hospital</button>
+    </div>
+  </div>
+
+  <!-- ── CLAIM STATUS MODAL ── -->
+  <div class="modal-overlay" id="claimModalOverlay" onclick="closeClaimModal()"></div>
+  <div class="modal" id="claimModal">
+    <div class="modal-header">
+      <div class="modal-title">Update Claim Status</div>
+      <button class="modal-close" onclick="closeClaimModal()"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="cm_id" />
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Claim Reference</label>
+          <input type="text" id="cm_ref" disabled />
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Status</label>
+          <select id="cm_status">
+            <option value="submitted">Submitted</option>
+            <option value="processing">Processing</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="mfield">
+          <label>Admin Notes</label>
+          <textarea id="cm_notes" rows="3" placeholder="Internal notes..."></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-ghost" onclick="closeClaimModal()">Cancel</button>
+      <button class="btn-primary" onclick="saveClaimStatus()">Update Status</button>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -431,7 +431,6 @@ document.getElementById('confirmBtn').addEventListener('click', function () {
   const hospitalName = hospitalObj ? hospitalObj.name : 'To be assigned';
   const ref = 'DC-OPD-' + Date.now().toString(36).toUpperCase().slice(-6);
 
-  // Save to localStorage
   const appt = {
     ref, name, phone: '+91 ' + phone, age, gender,
     dept: deptName, complaint, notes,
@@ -440,6 +439,25 @@ document.getElementById('confirmBtn').addEventListener('click', function () {
     status: 'upcoming',
     bookedAt: Date.now(),
   };
+
+  // Save to API if available, else fallback to localStorage
+  if (window.API_BASE) {
+    window.apiCall('POST', '/api/appointments', {
+      ref, name,
+      phone: '+91 ' + phone,
+      age: age || null,
+      gender: gender || null,
+      department: deptName,
+      complaint,
+      notes,
+      hospital_id: hospitalObj ? hospitalObj.id : null,
+      hospital_name: hospitalName,
+      location,
+      date: selectedDate,
+      time: selectedSlot,
+    }).catch(err => console.warn('API save failed, using localStorage:', err));
+  }
+  // Always save locally so My Appointments works offline too
   const existing = JSON.parse(localStorage.getItem('dc_appointments') || '[]');
   existing.unshift(appt);
   localStorage.setItem('dc_appointments', JSON.stringify(existing));

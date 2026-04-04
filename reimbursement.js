@@ -227,7 +227,34 @@ function submitClaim() {
     submittedAt: Date.now(),
   };
 
-  // Save to localStorage
+  // Save to API if available, else fallback to localStorage
+  if (window.API_BASE) {
+    window.apiCall('POST', '/api/claims', {
+      ref,
+      name:           claim.name,
+      phone:          claim.phone,
+      age:            claim.age || null,
+      gender:         claim.gender || null,
+      relation:       claim.relation || null,
+      insurer:        claim.insurer,
+      policy_no:      claim.policyNo,
+      member_id:      claim.memberId,
+      tpa:            claim.tpa,
+      hospital:       claim.hospital,
+      city:           claim.city,
+      state:          claim.state,
+      claim_type:     claim.claimType,
+      department:     claim.dept,
+      diagnosis:      claim.diagnosis,
+      procedure_name: claim.procedure,
+      admit_date:     claim.admitDate || null,
+      discharge_date: claim.dischargeDate || null,
+      total_bill:     claim.totalBill || null,
+      paid_by_insurance: claim.paidByIns || 0,
+      claim_amount:   claim.claimAmount,
+    }).catch(err => console.warn('API save failed, using localStorage:', err));
+  }
+  // Always save locally as fallback
   const existing = JSON.parse(localStorage.getItem('dc_claims') || '[]');
   existing.unshift(claim);
   localStorage.setItem('dc_claims', JSON.stringify(existing));
@@ -245,8 +272,8 @@ function submitClaim() {
 
 // ── Track claim ───────────────────────────────────────────────
 
-function trackClaim() {
-  const ref = document.getElementById('trackRef').value.trim().toUpperCase();
+async function trackClaim() {
+  const ref    = document.getElementById('trackRef').value.trim().toUpperCase();
   const result = document.getElementById('trackResult');
 
   if (!ref) {
@@ -255,10 +282,20 @@ function trackClaim() {
     return;
   }
 
-  const claims = JSON.parse(localStorage.getItem('dc_claims') || '[]');
-  const claim = claims.find(c => c.ref.toUpperCase() === ref);
-
   result.style.display = 'block';
+  result.innerHTML = `<div class="reimb-track-not-found" style="color:rgba(255,255,255,0.4)"><i class="fas fa-spinner fa-spin"></i> Looking up claim…</div>`;
+
+  // Try API first, fall back to localStorage
+  let claim = null;
+  if (window.API_BASE) {
+    try {
+      claim = await window.apiCall('GET', '/api/claims/' + encodeURIComponent(ref));
+    } catch (e) { /* not found or API error — fall through to localStorage */ }
+  }
+  if (!claim) {
+    const claims = JSON.parse(localStorage.getItem('dc_claims') || '[]');
+    claim = claims.find(c => c.ref.toUpperCase() === ref) || null;
+  }
 
   if (!claim) {
     result.innerHTML = `<div class="reimb-track-not-found">
