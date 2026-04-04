@@ -77,14 +77,45 @@ const SLOTS = {
   eve: ['4:00 PM', '4:30 PM', '5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM'],
 };
 
+/* Hospital list — mirrors search.js, keyed by city id */
+const OPD_HOSPITALS = [
+  { id: 1,  name: 'Banda Medical Centre',           city: 'banda-city',        address: 'Civil Lines, Banda, UP 210001',                    type: 'Multi-Speciality',  beds: 150 },
+  { id: 2,  name: 'Shri Vinayak Hospital',           city: 'banda-city',        address: 'Rajapur Road, Banda, UP 210001',                   type: 'Multi-Speciality',  beds: 80  },
+  { id: 3,  name: 'Regency Hospital',                city: 'kanpur-nagar',      address: 'A-2 Sarvodaya Nagar, Kanpur 208005',               type: 'Super-Speciality',  beds: 350 },
+  { id: 4,  name: 'Sahara Hospital',                 city: 'lucknow-city',      address: 'Viraj Khand, Gomti Nagar, Lucknow 226010',         type: 'Super-Speciality',  beds: 500 },
+  { id: 5,  name: 'Ram Manohar Lohia Hospital',      city: 'hazratganj',        address: 'Vibhuti Khand, Gomti Nagar, Lucknow 226010',       type: 'Government',        beds: 1000},
+  { id: 6,  name: 'Heritage Hospitals',              city: 'varanasi-city',     address: 'Mahmoorganj, Varanasi 221010',                     type: 'Multi-Speciality',  beds: 200 },
+  { id: 7,  name: 'Kamla Nehru Memorial Hospital',   city: 'civil-lines',       address: 'Civil Lines, Prayagraj 211001',                    type: 'Government',        beds: 600 },
+  { id: 8,  name: 'Max Super Speciality Hospital',   city: 'saket',             address: 'Press Enclave Road, Saket, New Delhi 110017',      type: 'Super-Speciality',  beds: 500 },
+  { id: 9,  name: 'Fortis Escorts Heart Institute',  city: 'saket',             address: 'Okhla Road, New Delhi 110025',                     type: 'Super-Speciality',  beds: 310 },
+  { id: 10, name: 'AIIMS New Delhi',                 city: 'new-delhi-centre',  address: 'Sri Aurobindo Marg, New Delhi 110029',             type: 'Government',        beds: 2478},
+  { id: 11, name: 'Kokilaben Dhirubhai Ambani Hosp', city: 'andheri',           address: 'Four Bungalows, Andheri West, Mumbai 400053',      type: 'Super-Speciality',  beds: 750 },
+  { id: 12, name: 'Lilavati Hospital',               city: 'bandra',            address: 'A-791 Bandra Reclamation, Mumbai 400050',          type: 'Multi-Speciality',  beds: 323 },
+  { id: 13, name: 'Ruby Hall Clinic',                city: 'shivajinagar',      address: '40 Sassoon Road, Pune 411001',                     type: 'Multi-Speciality',  beds: 450 },
+  { id: 14, name: 'Medanta — The Medicity',          city: 'gurgaon-city',      address: 'Sector 38, Gurugram, Haryana 122001',              type: 'Super-Speciality',  beds: 1250},
+  { id: 15, name: 'Artemis Hospital',                city: 'gurgaon-city',      address: 'Sector 51, Gurugram, Haryana 122001',              type: 'Super-Speciality',  beds: 400 },
+  { id: 16, name: 'Fortis Memorial Research Inst.',  city: 'gurgaon-city',      address: 'Sector 44, Gurugram, Haryana 122002',              type: 'Super-Speciality',  beds: 310 },
+  { id: 17, name: 'Apollo Hospitals Chennai',        city: 'chennai-city',      address: '21 Greams Lane, Off Greams Road, Chennai 600006',  type: 'Super-Speciality',  beds: 700 },
+  { id: 18, name: 'Manipal Hospital Bengaluru',      city: 'koramangala',       address: '98 HAL Airport Road, Bengaluru 560017',            type: 'Super-Speciality',  beds: 600 },
+  { id: 19, name: 'AMRI Hospital Kolkata',           city: 'kolkata-city',      address: 'JC-16 & 17 Salt Lake City, Kolkata 700098',        type: 'Multi-Speciality',  beds: 350 },
+  { id: 20, name: 'PGIMER Chandigarh',               city: 'amritsar-city',     address: 'Sector 12, Chandigarh 160012',                     type: 'Government',        beds: 1960},
+  { id: 21, name: 'Sterling Hospital Ahmedabad',     city: 'ahmedabad-city',    address: 'Sterling Hospital Rd, Memnagar, Ahmedabad 380052', type: 'Multi-Speciality',  beds: 300 },
+  { id: 22, name: 'IGIMS Patna',                     city: 'patna-city',        address: 'Sheikhpura, Patna 800014',                         type: 'Government',        beds: 750 },
+  { id: 23, name: 'SMS Hospital Jaipur',             city: 'jaipur-city',       address: 'JLN Marg, Jaipur 302004',                          type: 'Government',        beds: 2000},
+  { id: 24, name: 'Bombay Hospital Indore',          city: 'indore-city',       address: 'Ring Road, Indore 452010',                         type: 'Multi-Speciality',  beds: 250 },
+  { id: 25, name: 'Care Hospital Nagpur',            city: 'nagpur-city',       address: 'Jaripatka, Nagpur 440014',                         type: 'Multi-Speciality',  beds: 230 },
+];
+
 
 /* ==============================
    DOM REFS
    ============================== */
-const opdState       = document.getElementById('opdState');
-const opdCity        = document.getElementById('opdCity');
-const opdDept        = document.getElementById('opdDept');
-const opdComplaint   = document.getElementById('opdComplaint');
+const opdState         = document.getElementById('opdState');
+const opdCity          = document.getElementById('opdCity');
+const opdHospital      = document.getElementById('opdHospital');
+const hospitalCard     = document.getElementById('hospitalCard');
+const opdDept          = document.getElementById('opdDept');
+const opdComplaint     = document.getElementById('opdComplaint');
 const opdComplaintWrap = document.getElementById('opdComplaintWrap');
 
 const panel1         = document.getElementById('panel1');
@@ -165,13 +196,48 @@ function setStep(n) {
 opdState.addEventListener('change', function () {
   opdCity.innerHTML = '<option value="">Select City</option>';
   opdCity.disabled = true;
+  opdHospital.innerHTML = '<option value="">Select City first</option>';
+  opdHospital.disabled = true;
+  hospitalCard.style.display = 'none';
   if (this.value && OPD_CITIES[this.value]) {
     populateOpdSelect(opdCity, OPD_CITIES[this.value], 'Select City');
     opdCity.disabled = false;
   }
   clearError(this);
 });
-opdCity.addEventListener('change', function () { clearError(this); });
+
+opdCity.addEventListener('change', function () {
+  clearError(this);
+  const cityId = this.value;
+  opdHospital.innerHTML = '<option value="">Select Hospital</option>';
+  hospitalCard.style.display = 'none';
+  if (!cityId) { opdHospital.disabled = true; return; }
+  const matches = OPD_HOSPITALS.filter(h => h.city === cityId);
+  if (matches.length === 0) {
+    opdHospital.innerHTML = '<option value="">No hospitals listed yet</option>';
+    opdHospital.disabled = true;
+    return;
+  }
+  matches.forEach(h => {
+    const o = document.createElement('option');
+    o.value = h.id;
+    o.textContent = h.name;
+    opdHospital.appendChild(o);
+  });
+  opdHospital.disabled = false;
+});
+
+opdHospital.addEventListener('change', function () {
+  clearError(this);
+  const h = OPD_HOSPITALS.find(x => x.id === +this.value);
+  if (!h) { hospitalCard.style.display = 'none'; return; }
+  hospitalCard.innerHTML = `
+    <div class="hmc-name"><i class="fas fa-hospital-user"></i> ${h.name}</div>
+    <div class="hmc-meta">${h.type} &nbsp;·&nbsp; ${h.beds} beds</div>
+    <div class="hmc-addr"><i class="fas fa-location-dot"></i> ${h.address}</div>
+  `;
+  hospitalCard.style.display = '';
+});
 
 
 /* ==============================
@@ -261,8 +327,9 @@ document.getElementById('nextBtn1').addEventListener('click', function () {
     else clearError(el);
   });
   if (!gender.value) { markError(gender); valid = false; } else clearError(gender);
-  if (!opdState.value) { markError(opdState); valid = false; } else clearError(opdState);
-  if (!opdDept.value)  { markError(opdDept);  valid = false; } else clearError(opdDept);
+  if (!opdState.value)    { markError(opdState);    valid = false; } else clearError(opdState);
+  if (!opdDept.value)     { markError(opdDept);     valid = false; } else clearError(opdDept);
+  if (!opdHospital.value) { markError(opdHospital); valid = false; } else clearError(opdHospital);
 
   if (phone.value && !/^\d{10}$/.test(phone.value.trim())) {
     markError(phone); valid = false;
@@ -300,16 +367,19 @@ document.getElementById('nextBtn2').addEventListener('click', function () {
   const age       = document.getElementById('patientAge').value.trim();
   const gender    = document.getElementById('patientGender').value;
   const notes     = document.getElementById('patientNotes').value.trim();
-  const deptName  = getLabel(OPD_DEPARTMENTS, opdDept.value);
-  const complaint = opdComplaint.value ? getLabel(OPD_COMPLAINTS[opdDept.value] || [], opdComplaint.value) : '';
-  const stateName = getLabel(OPD_STATES, opdState.value);
-  const cityName  = opdCity.value ? getLabel(OPD_CITIES[opdState.value] || [], opdCity.value) : '';
-  const location  = [cityName, stateName].filter(Boolean).join(', ');
+  const deptName    = getLabel(OPD_DEPARTMENTS, opdDept.value);
+  const complaint   = opdComplaint.value ? getLabel(OPD_COMPLAINTS[opdDept.value] || [], opdComplaint.value) : '';
+  const stateName   = getLabel(OPD_STATES, opdState.value);
+  const cityName    = opdCity.value ? getLabel(OPD_CITIES[opdState.value] || [], opdCity.value) : '';
+  const location    = [cityName, stateName].filter(Boolean).join(', ');
+  const hospitalObj = OPD_HOSPITALS.find(h => h.id === +opdHospital.value);
+  const hospitalName = hospitalObj ? hospitalObj.name : '';
 
   document.getElementById('cName').textContent      = name;
   document.getElementById('cPhone').textContent     = '+91 ' + phone;
   document.getElementById('cAgeGender').textContent = `${age} yrs · ${gender.charAt(0).toUpperCase() + gender.slice(1)}`;
   document.getElementById('cDept').textContent      = deptName;
+  document.getElementById('cHospital').textContent  = hospitalName || 'Not specified';
   document.getElementById('cLocation').textContent  = location || 'Not specified';
   document.getElementById('cDateTime').textContent  = `${selectedDate} · ${selectedSlot}`;
 
