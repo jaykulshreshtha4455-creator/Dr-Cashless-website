@@ -115,15 +115,16 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   transition: background 0.3s;
 }
 .header-inner {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center;
   height: 64px; max-width: var(--max); margin: 0 auto; padding: 0 20px;
-  position: relative;
+  gap: 20px;
 }
 
 .brand {
   display: flex; align-items: center; gap: 10px;
   font-size: 18px; color: #fff; font-weight: 400;
-  position: absolute; left: 50%; transform: translateX(-50%);
+  flex-shrink: 0;
+  margin-right: auto;
 }
 .brand-icon {
   width: 34px; height: 34px;
@@ -133,7 +134,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .brand strong { font-weight: 700; }
 
-.menu-btn { display: flex; flex-direction: column; gap: 5px; padding: 6px; }
+.menu-btn { display: flex; flex-direction: column; gap: 5px; padding: 6px; flex-shrink: 0; }
 .menu-btn span {
   display: block; width: 22px; height: 1.5px;
   background: rgba(255,255,255,0.8); border-radius: 2px;
@@ -147,12 +148,15 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .desk-nav {
   display: none;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
+  flex: 1;
+  justify-content: flex-end;
 }
 .desk-nav a {
-  font-size: 14px; font-weight: 500;
+  font-size: 13px; font-weight: 500;
   color: rgba(255,255,255,0.7);
   transition: color 0.2s;
+  white-space: nowrap;
 }
 .desk-nav a:hover,
 .desk-nav a.desk-nav-active { color: #fff; }
@@ -168,7 +172,8 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 @media (min-width: 768px) {
   .desk-nav   { display: flex; }
-  .header-btn { display: inline-flex; }
+  .header-btn { display: inline-flex; flex-shrink: 0; margin-left: 16px; }
+  .menu-btn   { display: none; }
 }
 
 
