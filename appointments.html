@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Appointments — Dr. Cashless</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="appointments.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- DRAWER -->
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-brand">
+        <div class="d-mark"><i class="fas fa-heart-pulse"></i></div>
+        <div>
+          <div class="d-name">Dr. Cashless</div>
+          <div class="d-sub">Health Made Simple</div>
+        </div>
+      </div>
+      <button class="close-btn" id="closeBtn"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="search.html"><i class="fas fa-magnifying-glass"></i> Find Hospital</a></li>
+      <li><a href="opd.html"><i class="fas fa-calendar-check"></i> Book OPD</a></li>
+      <li><a href="coverage.html"><i class="fas fa-shield-halved"></i> Coverage Check</a></li>
+      <li><a href="appointments.html" class="drawer-active"><i class="fas fa-list-check"></i> My Appointments</a></li>
+      <li><a href="index.html#contact"><i class="fas fa-phone"></i> Contact</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a href="tel:+919026320900" class="d-cta">
+        <i class="fas fa-phone"></i> Get a Free Call
+      </a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-heart-pulse"></i></div>
+        Dr. <strong>Cashless</strong>
+      </a>
+      <nav class="desk-nav">
+        <a href="search.html">Find Hospital</a>
+        <a href="opd.html">Book OPD</a>
+        <a href="coverage.html">Coverage</a>
+        <a href="appointments.html" class="desk-nav-active">My Appointments</a>
+      </nav>
+      <a href="tel:+919026320900" class="header-btn">Get a Call</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="search-hero appt-hero">
+      <div class="search-hero-inner">
+        <div class="section-chip"><i class="fas fa-list-check"></i> Appointments</div>
+        <h1 class="search-hero-title">My <em>Appointments</em></h1>
+      </div>
+    </section>
+
+    <!-- MAIN SECTION -->
+    <section class="search-section appt-section">
+      <div class="container">
+
+        <!-- STATS BAR -->
+        <div class="appt-stats" id="apptStats" style="display:none">
+          <div class="appt-stat">
+            <div class="appt-stat-val" id="statTotal">0</div>
+            <div class="appt-stat-label">Total</div>
+          </div>
+          <div class="appt-stat-div"></div>
+          <div class="appt-stat">
+            <div class="appt-stat-val upcoming" id="statUpcoming">0</div>
+            <div class="appt-stat-label">Upcoming</div>
+          </div>
+          <div class="appt-stat-div"></div>
+          <div class="appt-stat">
+            <div class="appt-stat-val completed" id="statCompleted">0</div>
+            <div class="appt-stat-label">Completed</div>
+          </div>
+          <div class="appt-stat-div"></div>
+          <div class="appt-stat">
+            <div class="appt-stat-val cancelled" id="statCancelled">0</div>
+            <div class="appt-stat-label">Cancelled</div>
+          </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="appt-filters" id="apptFilters" style="display:none">
+          <div class="appt-filter-left">
+            <button class="appt-filter-btn active" data-filter="all">All</button>
+            <button class="appt-filter-btn" data-filter="upcoming">
+              <i class="fas fa-clock"></i> Upcoming
+            </button>
+            <button class="appt-filter-btn" data-filter="completed">
+              <i class="fas fa-circle-check"></i> Completed
+            </button>
+            <button class="appt-filter-btn" data-filter="cancelled">
+              <i class="fas fa-circle-xmark"></i> Cancelled
+            </button>
+          </div>
+          <div class="appt-filter-right">
+            <div class="appt-search-wrap">
+              <i class="fas fa-magnifying-glass"></i>
+              <input type="text" id="apptSearch" placeholder="Search by name, hospital, ref…" />
+            </div>
+            <button class="appt-clear-btn" id="clearAllBtn" title="Clear all appointments">
+              <i class="fas fa-trash"></i> Clear All
+            </button>
+          </div>
+        </div>
+
+        <!-- TABLE (desktop) / CARDS (mobile) -->
+        <div id="apptContent"></div>
+
+        <!-- EMPTY STATE -->
+        <div class="appt-empty" id="apptEmpty" style="display:none">
+          <div class="appt-empty-icon"><i class="fas fa-calendar-xmark"></i></div>
+          <h2 class="appt-empty-title">No appointments yet</h2>
+          <p class="appt-empty-sub">You haven't booked any OPD appointments. Book one now and it will appear here.</p>
+          <a href="opd.html" class="search-btn appt-book-btn">
+            <i class="fas fa-calendar-plus"></i> Book an Appointment
+          </a>
+        </div>
+
+        <!-- NO FILTER MATCH -->
+        <div class="appt-empty" id="apptNoMatch" style="display:none">
+          <div class="appt-empty-icon" style="background: rgba(242,92,8,0.1); color: var(--orange)"><i class="fas fa-filter-circle-xmark"></i></div>
+          <h2 class="appt-empty-title">No results found</h2>
+          <p class="appt-empty-sub">No appointments match your current filter or search.</p>
+          <button class="appt-reset-filter-btn" id="resetFilterBtn">
+            <i class="fas fa-rotate-left"></i> Reset Filters
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <div class="footer-mark"><i class="fas fa-heart-pulse"></i></div>
+            <span>Dr. <strong>Cashless</strong></span>
+          </div>
+          <p class="footer-tagline">Health Made Simple.<br />India's trusted cashless health partner.</p>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Quick Links</div>
+          <ul>
+            <li><a href="search.html">Find Hospital</a></li>
+            <li><a href="opd.html">Book OPD</a></li>
+            <li><a href="coverage.html">Coverage Check</a></li>
+            <li><a href="appointments.html">My Appointments</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:+919026320900">+91 90263 20900</a></li>
+            <li><a href="tel:05102441111">0510-2441111</a></li>
+            <li>Available 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Dr. Cashless. All rights reserved.</span>
+        <span>Your trusted health insurance partner.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CALL BTN -->
+  <a href="tel:+919026320900" class="fab" aria-label="Call now">
+    <i class="fas fa-phone"></i>
+  </a>
+
+  <!-- CANCEL CONFIRM MODAL -->
+  <div class="modal-overlay" id="modalOverlay" style="display:none">
+    <div class="modal-box">
+      <div class="modal-icon"><i class="fas fa-circle-exclamation"></i></div>
+      <div class="modal-title">Cancel Appointment?</div>
+      <div class="modal-sub">This will mark the appointment as cancelled. You can still view it in your history.</div>
+      <div class="modal-actions">
+        <button class="modal-btn-cancel" id="modalNo">Keep it</button>
+        <button class="modal-btn-confirm" id="modalYes">Yes, Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=2"></script>
+  <script src="appointments.js?v=1"></script>
+</body>
+</html>
