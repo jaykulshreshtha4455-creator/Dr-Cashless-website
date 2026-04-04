@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Coverage Checker — Dr. Cashless</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="coverage.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- DRAWER -->
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-brand">
+        <div class="d-mark"><i class="fas fa-heart-pulse"></i></div>
+        <div>
+          <div class="d-name">Dr. Cashless</div>
+          <div class="d-sub">Health Made Simple</div>
+        </div>
+      </div>
+      <button class="close-btn" id="closeBtn"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="index.html#services"><i class="fas fa-grid-2"></i> Services</a></li>
+      <li><a href="search.html"><i class="fas fa-magnifying-glass"></i> Find Hospital</a></li>
+      <li><a href="opd.html"><i class="fas fa-calendar-check"></i> Book OPD</a></li>
+      <li><a href="coverage.html" class="drawer-active"><i class="fas fa-shield-halved"></i> Coverage Check</a></li>
+      <li><a href="index.html#contact"><i class="fas fa-phone"></i> Contact</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a href="tel:+919026320900" class="d-cta">
+        <i class="fas fa-phone"></i> Get a Free Call
+      </a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-heart-pulse"></i></div>
+        Dr. <strong>Cashless</strong>
+      </a>
+      <nav class="desk-nav">
+        <a href="search.html">Find Hospital</a>
+        <a href="opd.html">Book OPD</a>
+        <a href="coverage.html" class="desk-nav-active">Coverage Check</a>
+      </nav>
+      <a href="tel:+919026320900" class="header-btn">Get a Call</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="search-hero cov-hero">
+      <div class="search-hero-inner">
+        <div class="section-chip"><i class="fas fa-shield-halved"></i> Insurance Coverage</div>
+        <h1 class="search-hero-title">Check What Your <em>Policy Covers</em></h1>
+        <p class="search-hero-desc">Select your insurer and treatment to instantly see coverage details, sub-limits, waiting periods, and what's excluded.</p>
+      </div>
+    </section>
+
+    <!-- CHECKER SECTION -->
+    <section class="search-section">
+      <div class="container">
+
+        <!-- CHECKER CARD -->
+        <div class="search-card cov-checker-card">
+          <div class="form-block">
+            <div class="form-block-title">
+              <div class="form-block-icon"><i class="fas fa-building-columns"></i></div>
+              <div>
+                <div class="form-block-label">Your Insurance Company</div>
+                <div class="form-block-hint">Select your current health insurer</div>
+              </div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="select-wrap">
+                <select id="covInsurer">
+                  <option value="">Select Insurer</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+              <div class="select-wrap">
+                <select id="covPlan" disabled>
+                  <option value="">Select Plan Type</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-divider"></div>
+
+          <div class="form-block">
+            <div class="form-block-title">
+              <div class="form-block-icon"><i class="fas fa-stethoscope"></i></div>
+              <div>
+                <div class="form-block-label">Treatment / Procedure</div>
+                <div class="form-block-hint">What are you planning to get treated for?</div>
+              </div>
+            </div>
+            <div class="form-row form-row--2">
+              <div class="select-wrap">
+                <select id="covDept">
+                  <option value="">Select Department</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+              <div class="select-wrap">
+                <select id="covTreatment" disabled>
+                  <option value="">Select Treatment</option>
+                </select>
+                <i class="fas fa-chevron-down select-arrow"></i>
+              </div>
+            </div>
+          </div>
+
+          <button class="search-btn" id="checkBtn">
+            <i class="fas fa-shield-halved"></i> Check My Coverage
+          </button>
+        </div>
+        <!-- /CHECKER CARD -->
+
+        <!-- RESULT PANEL -->
+        <div class="cov-result" id="covResult" style="display:none">
+
+          <!-- STATUS BANNER -->
+          <div class="cov-status" id="covStatus">
+            <div class="cov-status-icon" id="covStatusIcon"></div>
+            <div>
+              <div class="cov-status-title" id="covStatusTitle"></div>
+              <div class="cov-status-sub" id="covStatusSub"></div>
+            </div>
+          </div>
+
+          <!-- DETAILS GRID -->
+          <div class="cov-details-grid" id="covDetailsGrid"></div>
+
+          <!-- COVERED / NOT COVERED LIST -->
+          <div class="cov-lists" id="covLists"></div>
+
+          <!-- WAITING PERIOD + NOTE -->
+          <div class="cov-waiting" id="covWaiting"></div>
+
+          <!-- CTA -->
+          <div class="cov-cta-row">
+            <a href="search.html" class="search-btn cov-cta-btn" style="text-decoration:none; margin-top:0; max-width:280px">
+              <i class="fas fa-magnifying-glass"></i> Find a Cashless Hospital
+            </a>
+            <a href="tel:+919026320900" class="btn-reset" style="margin-top:0">
+              <i class="fas fa-phone"></i> Talk to an Expert
+            </a>
+          </div>
+        </div>
+        <!-- /RESULT PANEL -->
+
+      </div>
+    </section>
+
+    <!-- INSURER CARDS SECTION -->
+    <section class="cov-insurers-section">
+      <div class="container">
+        <div class="cov-section-head">
+          <div class="section-chip" style="color:var(--orange)">All Insurers</div>
+          <h2 class="cov-section-title">Coverage at a Glance</h2>
+          <p class="cov-section-sub">Quick summary of what each insurer typically covers. Select above for detailed analysis.</p>
+        </div>
+        <div class="cov-insurer-grid" id="insurerGrid"></div>
+      </div>
+    </section>
+
+    <!-- EXCLUSIONS SECTION -->
+    <section class="cov-excl-section">
+      <div class="container">
+        <div class="cov-section-head">
+          <div class="section-chip" style="color:var(--orange)">Watch Out</div>
+          <h2 class="cov-section-title">Common Exclusions</h2>
+          <p class="cov-section-sub">Things most health insurance policies do <strong>not</strong> cover — know before you claim.</p>
+        </div>
+        <div class="cov-excl-grid">
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-clock"></i></div>
+            <div class="cov-excl-title">Waiting Period</div>
+            <p>Pre-existing diseases are typically not covered for the first 2–4 years. Specific illnesses like cataract, hernia, joint replacement have 1–2 year waiting periods.</p>
+          </div>
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-tooth"></i></div>
+            <div class="cov-excl-title">Dental Treatment</div>
+            <p>Routine dental procedures, fillings, root canals, braces, and dental implants are excluded in most standard health policies unless specifically added as a rider.</p>
+          </div>
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-eye"></i></div>
+            <div class="cov-excl-title">Eyesight & Specs</div>
+            <p>Correction of eyesight, spectacles, contact lenses, and LASIK surgery for refractive errors are generally excluded unless covered by a specific rider.</p>
+          </div>
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-person-pregnant"></i></div>
+            <div class="cov-excl-title">Maternity (Initial)</div>
+            <p>Maternity benefits usually activate after 9–24 months. Complications due to pregnancy in the first policy year are often excluded.</p>
+          </div>
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-spa"></i></div>
+            <div class="cov-excl-title">Cosmetic Surgery</div>
+            <p>Plastic surgery, aesthetic procedures, liposuction, hair transplants, and any treatment that is not medically necessary are excluded.</p>
+          </div>
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-wine-bottle"></i></div>
+            <div class="cov-excl-title">Self-inflicted / Addiction</div>
+            <p>Injuries due to self-harm, drug abuse, alcoholism, or any treatment arising from intoxication or substance abuse is not covered by any insurer.</p>
+          </div>
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-dumbbell"></i></div>
+            <div class="cov-excl-title">Weight & Wellness</div>
+            <p>Obesity treatment, weight-loss surgery, gym injuries unless admitted for 24+ hours, and general wellness procedures are excluded in most policies.</p>
+          </div>
+          <div class="cov-excl-card">
+            <div class="cov-excl-icon"><i class="fas fa-plane"></i></div>
+            <div class="cov-excl-title">Adventure Sports Injuries</div>
+            <p>Injuries sustained while doing adventure sports (skydiving, bungee jumping, racing) are typically excluded unless a specific rider is purchased.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HELP BANNER -->
+    <section class="cov-help-section">
+      <div class="container">
+        <div class="cov-help-card">
+          <div class="cov-help-icon"><i class="fas fa-headset"></i></div>
+          <div class="cov-help-text">
+            <h3>Not sure what your policy covers?</h3>
+            <p>Our insurance experts read the fine print so you don't have to. Get a free consultation in minutes.</p>
+          </div>
+          <div class="cov-help-actions">
+            <a href="tel:+919026320900" class="cov-help-btn-primary"><i class="fas fa-phone"></i> Call Now — Free</a>
+            <a href="https://wa.me/919026320900" class="cov-help-btn-secondary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <div class="footer-mark"><i class="fas fa-heart-pulse"></i></div>
+            <span>Dr. <strong>Cashless</strong></span>
+          </div>
+          <p class="footer-tagline">Health Made Simple.<br />India's trusted cashless health partner.</p>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Services</div>
+          <ul>
+            <li><a href="search.html">Find Hospital</a></li>
+            <li><a href="opd.html">Book OPD</a></li>
+            <li><a href="coverage.html">Coverage Check</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="tel:+919026320900">+91 90263 20900</a></li>
+            <li><a href="tel:05102441111">0510-2441111</a></li>
+            <li>Available 24/7</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024 Dr. Cashless. All rights reserved.</span>
+        <span>Your trusted health insurance partner.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CALL BTN -->
+  <a href="tel:+919026320900" class="fab" aria-label="Call now">
+    <i class="fas fa-phone"></i>
+  </a>
+
+  <script src="app.js?v=2"></script>
+  <script src="coverage.js?v=1"></script>
+</body>
+</html>
