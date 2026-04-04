@@ -198,6 +198,29 @@
               </div>
             </div>
 
+            <div class="form-divider"></div>
+
+            <!-- Hospital -->
+            <div class="form-block">
+              <div class="form-block-title">
+                <div class="form-block-icon"><i class="fas fa-hospital"></i></div>
+                <div>
+                  <div class="form-block-label">Select Hospital</div>
+                  <div class="form-block-hint">Choose where you want your OPD appointment</div>
+                </div>
+              </div>
+              <div class="form-row form-row--1" id="hospitalSelectWrap">
+                <div class="select-wrap">
+                  <select id="opdHospital" disabled>
+                    <option value="">Select State &amp; City first</option>
+                  </select>
+                  <i class="fas fa-chevron-down select-arrow"></i>
+                </div>
+              </div>
+              <!-- Hospital detail card (shown after selection) -->
+              <div id="hospitalCard" class="hospital-mini-card" style="display:none"></div>
+            </div>
+
             <button class="search-btn" id="nextBtn1">
               Continue to Schedule <i class="fas fa-arrow-right"></i>
             </button>
@@ -305,6 +328,13 @@
                 </div>
               </div>
               <div class="confirm-divider"></div>
+              <div class="confirm-row">
+                <div class="confirm-icon"><i class="fas fa-hospital"></i></div>
+                <div>
+                  <div class="confirm-label">Hospital</div>
+                  <div class="confirm-val" id="cHospital">—</div>
+                </div>
+              </div>
               <div class="confirm-row">
                 <div class="confirm-icon"><i class="fas fa-location-dot"></i></div>
                 <div>

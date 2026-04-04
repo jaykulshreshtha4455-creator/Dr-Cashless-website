@@ -69,6 +69,49 @@
 
 
 /* ==============================
+   HOSPITAL MINI CARD
+   ============================== */
+.hospital-mini-card {
+  margin-top: 12px;
+  background: #fff;
+  border: 1.5px solid var(--orange);
+  border-radius: 12px;
+  padding: 14px 16px;
+  animation: fadeIn 0.2s ease;
+}
+.hmc-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hmc-name i { color: var(--orange); }
+.hmc-meta {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+.hmc-addr {
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.5;
+}
+.hmc-addr i { margin-top: 2px; color: var(--muted); flex-shrink: 0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ==============================
    INPUT FIELDS
    ============================== */
 .input-wrap input,
