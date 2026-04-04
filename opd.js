@@ -417,8 +417,33 @@ document.getElementById('backBtn2').addEventListener('click', function () {
    CONFIRM → SUCCESS
    ============================== */
 document.getElementById('confirmBtn').addEventListener('click', function () {
-  const name = document.getElementById('patientName').value.trim();
-  const ref  = 'DC-OPD-' + Date.now().toString(36).toUpperCase().slice(-6);
+  const name      = document.getElementById('patientName').value.trim();
+  const phone     = document.getElementById('patientPhone').value.trim();
+  const age       = document.getElementById('patientAge').value.trim();
+  const gender    = document.getElementById('patientGender').value;
+  const notes     = document.getElementById('patientNotes').value.trim();
+  const deptName  = getLabel(OPD_DEPARTMENTS, opdDept.value);
+  const complaint = opdComplaint.value ? getLabel(OPD_COMPLAINTS[opdDept.value] || [], opdComplaint.value) : '';
+  const stateName = getLabel(OPD_STATES, opdState.value);
+  const cityName  = opdCity.value ? getLabel(OPD_CITIES[opdState.value] || [], opdCity.value) : '';
+  const location  = [cityName, stateName].filter(Boolean).join(', ');
+  const hospitalObj  = OPD_HOSPITALS.find(h => h.id === +opdHospital.value);
+  const hospitalName = hospitalObj ? hospitalObj.name : 'To be assigned';
+  const ref = 'DC-OPD-' + Date.now().toString(36).toUpperCase().slice(-6);
+
+  // Save to localStorage
+  const appt = {
+    ref, name, phone: '+91 ' + phone, age, gender,
+    dept: deptName, complaint, notes,
+    hospital: hospitalName, location,
+    date: selectedDate, time: selectedSlot,
+    status: 'upcoming',
+    bookedAt: Date.now(),
+  };
+  const existing = JSON.parse(localStorage.getItem('dc_appointments') || '[]');
+  existing.unshift(appt);
+  localStorage.setItem('dc_appointments', JSON.stringify(existing));
+
   document.getElementById('sName').textContent = name;
   document.getElementById('sRef').textContent  = 'Ref: ' + ref;
 
