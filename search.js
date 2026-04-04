@@ -827,7 +827,7 @@ function renderHospitalCard(h) {
         </div>
       </div>
 
-      <a href="tel:+919026320900" class="hosp-help-btn">
+      <a href="tel:+917999868659" class="hosp-help-btn">
         <i class="fas fa-phone"></i> Get Cashless Help
       </a>
     </div>
