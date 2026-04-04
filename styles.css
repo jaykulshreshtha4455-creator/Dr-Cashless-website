@@ -141,6 +141,36 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .menu-btn:hover span { background: #fff; }
 
+/* ==============================
+   DESKTOP NAV (shared across all pages)
+   ============================== */
+.desk-nav {
+  display: none;
+  align-items: center;
+  gap: 28px;
+}
+.desk-nav a {
+  font-size: 14px; font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s;
+}
+.desk-nav a:hover,
+.desk-nav a.desk-nav-active { color: #fff; }
+
+.header-btn {
+  display: none;
+  font-size: 13px; font-weight: 600;
+  color: #fff; background: var(--orange);
+  padding: 8px 18px; border-radius: 999px;
+  white-space: nowrap; transition: opacity 0.2s;
+}
+.header-btn:hover { opacity: 0.88; }
+
+@media (min-width: 768px) {
+  .desk-nav   { display: flex; }
+  .header-btn { display: inline-flex; }
+}
+
 
 /* ==============================
    HERO
