@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reimbursement Claims — Dr. Cashless</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="reimbursement.css" />
+</head>
+<body>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- DRAWER -->
+  <nav class="drawer" id="drawer">
+    <div class="drawer-head">
+      <div class="drawer-brand">
+        <div class="d-mark"><i class="fas fa-heart-pulse"></i></div>
+        <div>
+          <div class="d-name">Dr. Cashless</div>
+          <div class="d-sub">Health Made Simple</div>
+        </div>
+      </div>
+      <button class="close-btn" id="closeBtn"><i class="fas fa-xmark"></i></button>
+    </div>
+    <ul class="drawer-nav">
+      <li><a href="index.html"><i class="fas fa-house"></i> Home</a></li>
+      <li><a href="search.html"><i class="fas fa-magnifying-glass"></i> Find Hospital</a></li>
+      <li><a href="opd.html"><i class="fas fa-calendar-check"></i> Book OPD</a></li>
+      <li><a href="coverage.html"><i class="fas fa-shield-halved"></i> Coverage Check</a></li>
+      <li><a href="reimbursement.html" class="drawer-active"><i class="fas fa-file-invoice-dollar"></i> Reimbursement</a></li>
+      <li><a href="appointments.html"><i class="fas fa-list-check"></i> My Appointments</a></li>
+      <li><a href="index.html#contact"><i class="fas fa-phone"></i> Contact</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a href="tel:+917999868659" class="d-cta">
+        <i class="fas fa-phone"></i> Get a Free Call
+      </a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <button class="menu-btn" id="menuBtn">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-heart-pulse"></i></div>
+        Dr. <strong>Cashless</strong>
+      </a>
+      <nav class="desk-nav">
+        <a href="search.html">Find Hospital</a>
+        <a href="opd.html">Book OPD</a>
+        <a href="coverage.html">Coverage Check</a>
+        <a href="reimbursement.html" class="desk-nav-active">Reimbursement</a>
+      </nav>
+      <a href="tel:+917999868659" class="header-btn">Get a Call</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="search-hero reimb-hero">
+      <div class="search-hero-inner">
+        <div class="section-chip"><i class="fas fa-file-invoice-dollar"></i> Reimbursement Claims</div>
+        <h1 class="search-hero-title">Get Your <em>Money Back</em> Fast</h1>
+        <p class="search-hero-desc">Paid out of pocket? We'll help you file your insurance reimbursement claim correctly — so you get the full amount you deserve, without the paperwork headache.</p>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="reimb-how">
+      <div class="container">
+        <div class="reimb-how-header">
+          <div class="section-chip"><i class="fas fa-route"></i> The Process</div>
+          <h2 class="reimb-how-title">How Reimbursement Works</h2>
+          <p class="reimb-how-desc">4 simple steps to get your insurance money back</p>
+        </div>
+        <div class="reimb-steps-row">
+          <div class="reimb-step-card">
+            <div class="reimb-step-num">01</div>
+            <div class="reimb-step-icon"><i class="fas fa-file-medical"></i></div>
+            <div class="reimb-step-title">Submit Your Claim</div>
+            <div class="reimb-step-desc">Fill in your treatment details, hospital info, and total bill amount in our claim form below.</div>
+          </div>
+          <div class="reimb-step-arrow"><i class="fas fa-chevron-right"></i></div>
+          <div class="reimb-step-card">
+            <div class="reimb-step-num">02</div>
+            <div class="reimb-step-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="reimb-step-title">Upload Documents</div>
+            <div class="reimb-step-desc">Share discharge summary, original bills, prescriptions, and your insurance policy card.</div>
+          </div>
+          <div class="reimb-step-arrow"><i class="fas fa-chevron-right"></i></div>
+          <div class="reimb-step-card">
+            <div class="reimb-step-num">03</div>
+            <div class="reimb-step-icon"><i class="fas fa-user-check"></i></div>
+            <div class="reimb-step-title">We Process It</div>
+            <div class="reimb-step-desc">Our team reviews your documents, follows up with the TPA, and keeps you updated at every step.</div>
+          </div>
+          <div class="reimb-step-arrow"><i class="fas fa-chevron-right"></i></div>
+          <div class="reimb-step-card">
+            <div class="reimb-step-num">04</div>
+            <div class="reimb-step-icon"><i class="fas fa-sack-dollar"></i></div>
+            <div class="reimb-step-title">Money Credited</div>
+            <div class="reimb-step-desc">Once approved, the reimbursement amount is transferred directly to your bank account.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLAIM FORM SECTION -->
+    <section class="search-section">
+      <div class="container">
+        <div class="reimb-form-wrap">
+
+          <!-- STEP INDICATOR -->
+          <div class="opd-steps" id="stepIndicator">
+            <div class="opd-step active" data-step="1">
+              <div class="opd-step-circle">1</div>
+              <div class="opd-step-label">Patient & Hospital</div>
+            </div>
+            <div class="opd-step-line"></div>
+            <div class="opd-step" data-step="2">
+              <div class="opd-step-circle">2</div>
+              <div class="opd-step-label">Treatment & Bills</div>
+            </div>
+            <div class="opd-step-line"></div>
+            <div class="opd-step" data-step="3">
+              <div class="opd-step-circle">3</div>
+              <div class="opd-step-label">Review & Submit</div>
+            </div>
+          </div>
+
+          <!-- STEP 1: Patient & Hospital -->
+          <div class="reimb-step-panel active" id="panel1">
+            <div class="search-card">
+              <div class="form-block">
+                <div class="form-block-title">
+                  <div class="form-block-icon"><i class="fas fa-user"></i></div>
+                  <div>
+                    <div class="form-block-label">Patient Details</div>
+                    <div class="form-block-hint">Who received the treatment?</div>
+                  </div>
+                </div>
+                <div class="form-row form-row--2">
+                  <div class="input-wrap">
+                    <input type="text" id="r_name" placeholder="Full Name *" />
+                  </div>
+                  <div class="input-wrap">
+                    <input type="tel" id="r_phone" placeholder="Phone Number *" maxlength="10" />
+                  </div>
+                </div>
+                <div class="form-row form-row--3">
+                  <div class="input-wrap">
+                    <input type="number" id="r_age" placeholder="Age *" min="1" max="120" />
+                  </div>
+                  <div class="select-wrap">
+                    <select id="r_gender">
+                      <option value="">Gender *</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-arrow"></i>
+                  </div>
+                  <div class="select-wrap">
+                    <select id="r_relation">
+                      <option value="">Patient is *</option>
+                      <option value="self">Self</option>
+                      <option value="spouse">Spouse</option>
+                      <option value="child">Child</option>
+                      <option value="parent">Parent</option>
+                      <option value="sibling">Sibling</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-arrow"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-block">
+                <div class="form-block-title">
+                  <div class="form-block-icon"><i class="fas fa-building-columns"></i></div>
+                  <div>
+                    <div class="form-block-label">Insurance Details</div>
+                    <div class="form-block-hint">Your active health insurance policy</div>
+                  </div>
+                </div>
+                <div class="form-row form-row--2">
+                  <div class="select-wrap">
+                    <select id="r_insurer">
+                      <option value="">Select Insurer *</option>
+                      <option value="star">Star Health Insurance</option>
+                      <option value="hdfc">HDFC ERGO</option>
+                      <option value="icici">ICICI Lombard</option>
+                      <option value="niva">Niva Bupa</option>
+                      <option value="bajaj">Bajaj Allianz</option>
+                      <option value="sbi">SBI General</option>
+                      <option value="united">United India</option>
+                      <option value="oriental">Oriental Insurance</option>
+                      <option value="nic">National Insurance</option>
+                      <option value="care">Care Health</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-arrow"></i>
+                  </div>
+                  <div class="input-wrap">
+                    <input type="text" id="r_policy_no" placeholder="Policy Number *" />
+                  </div>
+                </div>
+                <div class="form-row form-row--2">
+                  <div class="input-wrap">
+                    <input type="text" id="r_member_id" placeholder="Member ID / Card Number" />
+                  </div>
+                  <div class="input-wrap">
+                    <input type="text" id="r_tpa" placeholder="TPA Name (if applicable)" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-block">
+                <div class="form-block-title">
+                  <div class="form-block-icon"><i class="fas fa-hospital"></i></div>
+                  <div>
+                    <div class="form-block-label">Hospital Details</div>
+                    <div class="form-block-hint">Where was the treatment taken?</div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="input-wrap">
+                    <input type="text" id="r_hospital" placeholder="Hospital Name *" />
+                  </div>
+                </div>
+                <div class="form-row form-row--2">
+                  <div class="input-wrap">
+                    <input type="text" id="r_hospital_city" placeholder="City *" />
+                  </div>
+                  <div class="input-wrap">
+                    <input type="text" id="r_hospital_state" placeholder="State *" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="reimb-nav">
+                <span></span>
+                <button class="reimb-btn-primary" onclick="goStep(2)">
+                  Next — Treatment & Bills <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Treatment & Bills -->
+          <div class="reimb-step-panel" id="panel2">
+            <div class="search-card">
+              <div class="form-block">
+                <div class="form-block-title">
+                  <div class="form-block-icon"><i class="fas fa-stethoscope"></i></div>
+                  <div>
+                    <div class="form-block-label">Treatment Details</div>
+                    <div class="form-block-hint">What treatment was given?</div>
+                  </div>
+                </div>
+                <div class="form-row form-row--2">
+                  <div class="select-wrap">
+                    <select id="r_type">
+                      <option value="">Claim Type *</option>
+                      <option value="hospitalisation">Hospitalisation</option>
+                      <option value="daycare">Day Care Procedure</option>
+                      <option value="opd">OPD / Consultation</option>
+                      <option value="maternity">Maternity</option>
+                      <option value="ambulance">Ambulance</option>
+                      <option value="pharmacy">Pharmacy / Medicine</option>
+                      <option value="diagnostic">Diagnostics / Lab Tests</option>
+                      <option value="dental">Dental</option>
+                      <option value="vision">Vision / Eye Care</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-arrow"></i>
+                  </div>
+                  <div class="select-wrap">
+                    <select id="r_dept">
+                      <option value="">Department *</option>
+                      <option value="cardiology">Cardiology</option>
+                      <option value="orthopaedics">Orthopaedics</option>
+                      <option value="neurology">Neurology</option>
+                      <option value="oncology">Oncology</option>
+                      <option value="gynaecology">Gynaecology</option>
+                      <option value="gastroenterology">Gastroenterology</option>
+                      <option value="nephrology">Nephrology</option>
+                      <option value="pulmonology">Pulmonology</option>
+                      <option value="ophthalmology">Ophthalmology</option>
+                      <option value="general-surgery">General Surgery</option>
+                      <option value="paediatrics">Paediatrics</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <i class="fas fa-chevron-down select-arrow"></i>
+                  </div>
+                </div>
+                <div class="form-row form-row--2">
+                  <div class="input-wrap">
+                    <input type="text" id="r_diagnosis" placeholder="Diagnosis / Condition *" />
+                  </div>
+                  <div class="input-wrap">
+                    <input type="text" id="r_procedure" placeholder="Procedure / Surgery (if any)" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-block">
+                <div class="form-block-title">
+                  <div class="form-block-icon"><i class="fas fa-calendar-range"></i></div>
+                  <div>
+                    <div class="form-block-label">Admission / Treatment Dates</div>
+                    <div class="form-block-hint">When did the treatment happen?</div>
+                  </div>
+                </div>
+                <div class="form-row form-row--2">
+                  <div class="input-wrap">
+                    <label class="input-label">Date of Admission / Treatment *</label>
+                    <input type="date" id="r_admit_date" />
+                  </div>
+                  <div class="input-wrap">
+                    <label class="input-label">Date of Discharge (if admitted)</label>
+                    <input type="date" id="r_discharge_date" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-block">
+                <div class="form-block-title">
+                  <div class="form-block-icon"><i class="fas fa-indian-rupee-sign"></i></div>
+                  <div>
+                    <div class="form-block-label">Bill Amount</div>
+                    <div class="form-block-hint">Total amount you paid out of pocket</div>
+                  </div>
+                </div>
+                <div class="form-row form-row--3">
+                  <div class="input-wrap">
+                    <label class="input-label">Total Bill (₹) *</label>
+                    <input type="number" id="r_total_bill" placeholder="e.g. 85000" min="0" />
+                  </div>
+                  <div class="input-wrap">
+                    <label class="input-label">Already Paid by Insurance (₹)</label>
+                    <input type="number" id="r_paid_insurance" placeholder="e.g. 0" min="0" />
+                  </div>
+                  <div class="input-wrap reimb-claim-amount-wrap">
+                    <label class="input-label">Claim Amount (₹) *</label>
+                    <input type="number" id="r_claim_amount" placeholder="e.g. 85000" min="0" />
+                  </div>
+                </div>
+                <div class="reimb-amount-note">
+                  <i class="fas fa-circle-info"></i>
+                  Claim amount = Total bill minus any amount already settled by insurance or TPA.
+                </div>
+              </div>
+
+              <!-- DOCUMENTS CHECKLIST -->
+              <div class="form-block">
+                <div class="form-block-title">
+                  <div class="form-block-icon"><i class="fas fa-clipboard-list"></i></div>
+                  <div>
+                    <div class="form-block-label">Documents Checklist</div>
+                    <div class="form-block-hint">Check off what you have ready (our team will collect the rest)</div>
+                  </div>
+                </div>
+                <div class="reimb-docs-grid">
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_discharge" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Discharge Summary</strong>
+                      <span>Hospital-signed document with diagnosis, treatment & discharge date</span>
+                    </span>
+                  </label>
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_bills" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Original Bills & Receipts</strong>
+                      <span>Itemised hospital bills with payment receipts</span>
+                    </span>
+                  </label>
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_prescription" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Doctor's Prescription</strong>
+                      <span>All prescriptions from attending physician</span>
+                    </span>
+                  </label>
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_reports" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Lab / Diagnostic Reports</strong>
+                      <span>Blood tests, X-rays, MRI, CT scan reports</span>
+                    </span>
+                  </label>
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_policy" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Policy / Insurance Card</strong>
+                      <span>Copy of your health insurance policy card</span>
+                    </span>
+                  </label>
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_id" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Photo ID Proof</strong>
+                      <span>Aadhaar card, PAN card or passport of patient</span>
+                    </span>
+                  </label>
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_bank" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Bank Details / Cancelled Cheque</strong>
+                      <span>For reimbursement transfer to your account</span>
+                    </span>
+                  </label>
+                  <label class="reimb-doc-item">
+                    <input type="checkbox" id="doc_form" />
+                    <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                    <span class="reimb-doc-text">
+                      <strong>Claim Form (Insurer's)</strong>
+                      <span>Signed reimbursement claim form from your insurer</span>
+                    </span>
+                  </label>
+                </div>
+                <div class="reimb-docs-note">
+                  <i class="fas fa-lightbulb"></i>
+                  Don't have everything? No problem — our team will tell you exactly what's needed and help you arrange missing documents.
+                </div>
+              </div>
+
+              <div class="reimb-nav">
+                <button class="reimb-btn-ghost" onclick="goStep(1)">
+                  <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button class="reimb-btn-primary" onclick="goStep(3)">
+                  Review Claim <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Review & Submit -->
+          <div class="reimb-step-panel" id="panel3">
+            <div class="search-card">
+              <div class="reimb-review-header">
+                <div class="reimb-review-icon"><i class="fas fa-file-circle-check"></i></div>
+                <div>
+                  <div class="reimb-review-title">Review Your Claim</div>
+                  <div class="reimb-review-sub">Check all details before submitting</div>
+                </div>
+              </div>
+
+              <div class="reimb-review-grid" id="reviewGrid">
+                <!-- Filled by JS -->
+              </div>
+
+              <div class="reimb-review-docs" id="reviewDocs">
+                <!-- Filled by JS -->
+              </div>
+
+              <div class="reimb-consent">
+                <label class="reimb-consent-label">
+                  <input type="checkbox" id="r_consent" />
+                  <span class="reimb-doc-check"><i class="fas fa-check"></i></span>
+                  <span>I confirm that all details provided are accurate and I authorise Dr. Cashless to process this reimbursement claim on my behalf.</span>
+                </label>
+              </div>
+
+              <div class="reimb-nav">
+                <button class="reimb-btn-ghost" onclick="goStep(2)">
+                  <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <button class="reimb-btn-primary" id="submitBtn" onclick="submitClaim()">
+                  Submit Claim <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUCCESS STATE -->
+          <div class="reimb-success" id="successState" style="display:none;">
+            <div class="reimb-success-icon"><i class="fas fa-circle-check"></i></div>
+            <h2 class="reimb-success-title">Claim Submitted!</h2>
+            <p class="reimb-success-desc">Your reimbursement claim has been registered. Our team will review your details and reach out within <strong>24 hours</strong>.</p>
+            <div class="reimb-success-ref" id="successRef"></div>
+            <div class="reimb-success-steps">
+              <div class="reimb-suc-step">
+                <i class="fas fa-phone"></i>
+                <span>Our executive will call you to collect documents</span>
+              </div>
+              <div class="reimb-suc-step">
+                <i class="fas fa-paper-plane"></i>
+                <span>Claim filed with your insurer / TPA</span>
+              </div>
+              <div class="reimb-suc-step">
+                <i class="fas fa-magnifying-glass-dollar"></i>
+                <span>Track status below using your claim reference</span>
+              </div>
+            </div>
+            <div class="reimb-success-actions">
+              <a href="tel:+917999868659" class="reimb-btn-primary">
+                <i class="fas fa-phone"></i> Call Us Now
+              </a>
+              <a href="appointments.html" class="reimb-btn-ghost">
+                My Appointments
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRACK CLAIM -->
+    <section class="reimb-track-section">
+      <div class="container">
+        <div class="reimb-track-card">
+          <div class="reimb-track-left">
+            <div class="reimb-track-icon"><i class="fas fa-radar"></i></div>
+            <div>
+              <div class="reimb-track-title">Track Your Existing Claim</div>
+              <div class="reimb-track-sub">Enter your claim reference number to see the current status</div>
+            </div>
+          </div>
+          <div class="reimb-track-form">
+            <div class="reimb-track-input-wrap">
+              <input type="text" id="trackRef" placeholder="e.g. RC-20260404-1234" />
+            </div>
+            <button class="reimb-btn-primary" onclick="trackClaim()">
+              <i class="fas fa-magnifying-glass"></i> Track
+            </button>
+          </div>
+          <div class="reimb-track-result" id="trackResult" style="display:none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS REQUIRED -->
+    <section class="reimb-docs-section">
+      <div class="container">
+        <div class="reimb-docs-header">
+          <div class="section-chip"><i class="fas fa-folder-open"></i> Documents</div>
+          <h2 class="reimb-docs-title">What Documents Do You Need?</h2>
+          <p class="reimb-docs-desc">Having these ready speeds up your claim by up to 3x</p>
+        </div>
+        <div class="reimb-docs-categories">
+          <div class="reimb-docs-cat">
+            <div class="reimb-docs-cat-icon reimb-blue"><i class="fas fa-hospital"></i></div>
+            <div class="reimb-docs-cat-title">Hospitalisation</div>
+            <ul class="reimb-docs-list">
+              <li><i class="fas fa-check"></i> Discharge summary</li>
+              <li><i class="fas fa-check"></i> Hospital bills &amp; receipts</li>
+              <li><i class="fas fa-check"></i> Operation notes (if surgery)</li>
+              <li><i class="fas fa-check"></i> Indoor case papers</li>
+              <li><i class="fas fa-check"></i> Medicine &amp; investigation bills</li>
+            </ul>
+          </div>
+          <div class="reimb-docs-cat">
+            <div class="reimb-docs-cat-icon reimb-green"><i class="fas fa-flask"></i></div>
+            <div class="reimb-docs-cat-title">Medical Reports</div>
+            <ul class="reimb-docs-list">
+              <li><i class="fas fa-check"></i> Lab / blood test reports</li>
+              <li><i class="fas fa-check"></i> X-ray / MRI / CT scan</li>
+              <li><i class="fas fa-check"></i> ECG / Echo reports</li>
+              <li><i class="fas fa-check"></i> Doctor's consultation notes</li>
+              <li><i class="fas fa-check"></i> Prescription copies</li>
+            </ul>
+          </div>
+          <div class="reimb-docs-cat">
+            <div class="reimb-docs-cat-icon reimb-orange"><i class="fas fa-id-card"></i></div>
+            <div class="reimb-docs-cat-title">Identity &amp; Policy</div>
+            <ul class="reimb-docs-list">
+              <li><i class="fas fa-check"></i> Health insurance policy copy</li>
+              <li><i class="fas fa-check"></i> Insurance / TPA card</li>
+              <li><i class="fas fa-check"></i> Aadhaar / PAN card</li>
+              <li><i class="fas fa-check"></i> Cancelled cheque / passbook</li>
+              <li><i class="fas fa-check"></i> Signed claim form</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="reimb-faq-section">
+      <div class="container">
+        <div class="reimb-faq-header">
+          <div class="section-chip"><i class="fas fa-circle-question"></i> FAQ</div>
+          <h2 class="reimb-faq-title">Common Questions</h2>
+        </div>
+        <div class="reimb-faq-list" id="faqList">
+
+          <div class="reimb-faq-item">
+            <button class="reimb-faq-q" onclick="toggleFaq(this)">
+              How long does a reimbursement claim take?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="reimb-faq-a">
+              Typically 7–21 working days from the date all documents are submitted. We follow up with the insurer regularly and keep you informed. Cashless claims processed through us are usually faster.
+            </div>
+          </div>
+
+          <div class="reimb-faq-item">
+            <button class="reimb-faq-q" onclick="toggleFaq(this)">
+              Is there a time limit to file a reimbursement claim?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="reimb-faq-a">
+              Yes. Most insurers require you to submit within <strong>30–90 days</strong> of discharge. Some insurers allow up to 6 months for planned hospitalisation. Always check your policy wording — and file as soon as possible to avoid rejection.
+            </div>
+          </div>
+
+          <div class="reimb-faq-item">
+            <button class="reimb-faq-q" onclick="toggleFaq(this)">
+              What if my claim gets rejected?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="reimb-faq-a">
+              Don't panic — rejections can often be appealed. We analyse the rejection reason, identify gaps, and file a formal appeal or grievance with the insurer on your behalf. Our success rate in reversals is over 70%.
+            </div>
+          </div>
+
+          <div class="reimb-faq-item">
+            <button class="reimb-faq-q" onclick="toggleFaq(this)">
+              Can I claim reimbursement for OPD / medicines?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="reimb-faq-a">
+              It depends on your policy. Some comprehensive plans include OPD cover. Pharmacy and diagnostic costs for hospitalisation-related treatment are generally covered. We'll verify your specific policy before filing.
+            </div>
+          </div>
+
+          <div class="reimb-faq-item">
+            <button class="reimb-faq-q" onclick="toggleFaq(this)">
+              What does Dr. Cashless charge for this service?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="reimb-faq-a">
+              Our claims assistance service is <strong>free for the first claim</strong>. For subsequent claims, a small convenience fee applies — which is much less than what we recover for you. Call us to know more: <a href="tel:+917999868659">+91 7999868659</a>.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HELP BANNER -->
+    <section class="reimb-help-banner">
+      <div class="container">
+        <div class="reimb-help-inner">
+          <div class="reimb-help-icon"><i class="fas fa-headset"></i></div>
+          <div class="reimb-help-text">
+            <div class="reimb-help-title">Need Help With Your Claim?</div>
+            <div class="reimb-help-sub">Our claims experts are available Mon–Sat, 9 AM – 7 PM. We'll walk you through the entire process.</div>
+          </div>
+          <div class="reimb-help-actions">
+            <a href="tel:+917999868659" class="reimb-btn-primary">
+              <i class="fas fa-phone"></i> Call +91 7999868659
+            </a>
+            <a href="https://wa.me/917999868659" class="reimb-btn-wa">
+              <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="search.js?v=2"></script>
+  <script src="reimbursement.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,948 @@
+/*
+ * DR. CASHLESS — reimbursement.css
+ * Reimbursement Claims page styles
+ */
+
+/* ==============================
+   HERO TWEAK
+   ============================== */
+.reimb-hero::before {
+  background: radial-gradient(circle, rgba(242,92,8,0.20) 0%, rgba(242,92,8,0.07) 40%, transparent 70%);
+  left: auto;
+  right: -60px;
+}
+
+
+/* ==============================
+   HOW IT WORKS
+   ============================== */
+.reimb-how {
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.reimb-how-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.reimb-how-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(24px, 4vw, 36px);
+  color: #fff;
+  margin: 12px 0 8px;
+}
+
+.reimb-how-desc {
+  color: var(--muted-dark);
+  font-size: 15px;
+}
+
+.reimb-steps-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.reimb-step-card {
+  flex: 1;
+  min-width: 180px;
+  background: #161616;
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 28px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.reimb-step-card:hover {
+  border-color: rgba(242,92,8,0.4);
+}
+
+.reimb-step-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--orange);
+  text-transform: uppercase;
+}
+
+.reimb-step-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: var(--orange-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  color: var(--orange);
+}
+
+.reimb-step-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+}
+
+.reimb-step-desc {
+  font-size: 13px;
+  color: var(--muted-dark);
+  line-height: 1.55;
+}
+
+.reimb-step-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: var(--muted-dark);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 52px;
+}
+
+@media (max-width: 767px) {
+  .reimb-steps-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .reimb-step-arrow {
+    display: none;
+  }
+  .reimb-step-card {
+    min-width: unset;
+  }
+}
+
+
+/* ==============================
+   CLAIM FORM WRAP
+   ============================== */
+.reimb-form-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.reimb-step-panel {
+  display: none;
+}
+.reimb-step-panel.active {
+  display: block;
+}
+
+
+/* ==============================
+   INPUT LABEL
+   ============================== */
+.input-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted-dark);
+  margin-bottom: 6px;
+}
+
+
+/* ==============================
+   AMOUNT NOTE
+   ============================== */
+.reimb-amount-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted-dark);
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 8px;
+}
+
+.reimb-amount-note i {
+  color: var(--orange);
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+
+/* ==============================
+   DOCUMENTS CHECKLIST
+   ============================== */
+.reimb-docs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 600px) {
+  .reimb-docs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reimb-doc-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-dark);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.reimb-doc-item:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.reimb-doc-item input[type="checkbox"] {
+  display: none;
+}
+
+.reimb-doc-check {
+  width: 20px; height: 20px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  transition: background 0.15s, border-color 0.15s;
+  font-size: 10px;
+  color: transparent;
+}
+
+.reimb-doc-item input[type="checkbox"]:checked ~ .reimb-doc-check {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.reimb-doc-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.reimb-doc-text strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.reimb-doc-text span {
+  font-size: 11px;
+  color: var(--muted-dark);
+  line-height: 1.4;
+}
+
+.reimb-docs-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted-dark);
+  background: rgba(242,92,8,0.06);
+  border: 1px solid rgba(242,92,8,0.15);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.reimb-docs-note i {
+  color: var(--orange);
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+
+/* ==============================
+   NAV BUTTONS
+   ============================== */
+.reimb-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-dark);
+}
+
+.reimb-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+
+.reimb-btn-primary:hover { opacity: 0.88; }
+
+.reimb-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border-dark);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.reimb-btn-ghost:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+.reimb-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.reimb-btn-wa:hover { opacity: 0.88; }
+
+
+/* ==============================
+   REVIEW PANEL
+   ============================== */
+.reimb-review-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.reimb-review-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--orange-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.reimb-review-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.reimb-review-sub {
+  font-size: 13px;
+  color: var(--muted-dark);
+  margin-top: 2px;
+}
+
+.reimb-review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+  .reimb-review-grid { grid-template-columns: 1fr; }
+}
+
+.reimb-review-item {
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border-dark);
+}
+
+.reimb-review-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted-dark);
+  margin-bottom: 4px;
+}
+
+.reimb-review-val {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.reimb-review-amount {
+  background: rgba(242,92,8,0.08);
+  border-color: rgba(242,92,8,0.2);
+}
+
+.reimb-review-amount .reimb-review-val {
+  color: var(--orange);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.reimb-review-docs {
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border: 1px solid var(--border-dark);
+}
+
+.reimb-review-docs-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted-dark);
+  margin-bottom: 10px;
+}
+
+.reimb-review-doc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.reimb-doc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.reimb-doc-tag.ready {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34,197,94,0.25);
+}
+
+.reimb-doc-tag.pending {
+  background: rgba(255,255,255,0.05);
+  color: var(--muted-dark);
+  border: 1px solid var(--border-dark);
+}
+
+
+/* ==============================
+   CONSENT
+   ============================== */
+.reimb-consent {
+  margin-bottom: 4px;
+}
+
+.reimb-consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--muted-dark);
+  line-height: 1.5;
+}
+
+.reimb-consent-label .reimb-doc-check {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+
+/* ==============================
+   SUCCESS STATE
+   ============================== */
+.reimb-success {
+  text-align: center;
+  padding: 48px 20px;
+}
+
+.reimb-success-icon {
+  font-size: 64px;
+  color: #22c55e;
+  margin-bottom: 20px;
+  animation: popIn 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+.reimb-success-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.reimb-success-desc {
+  font-size: 15px;
+  color: var(--muted-dark);
+  max-width: 420px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+.reimb-success-ref {
+  display: inline-block;
+  background: rgba(242,92,8,0.1);
+  border: 1px solid rgba(242,92,8,0.25);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--orange);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.reimb-success-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+  margin: 0 auto 28px;
+}
+
+.reimb-suc-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+}
+
+.reimb-suc-step i {
+  color: var(--orange);
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.reimb-success-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ==============================
+   TRACK CLAIM
+   ============================== */
+.reimb-track-section {
+  padding: 0 0 64px;
+}
+
+.reimb-track-card {
+  background: #161616;
+  border: 1px solid var(--border-dark);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.reimb-track-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.reimb-track-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: var(--orange-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.reimb-track-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.reimb-track-sub {
+  font-size: 13px;
+  color: var(--muted-dark);
+  margin-top: 2px;
+}
+
+.reimb-track-form {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  min-width: 260px;
+}
+
+.reimb-track-input-wrap {
+  flex: 1;
+}
+
+.reimb-track-input-wrap input {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid var(--border-dark);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #fff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.reimb-track-input-wrap input:focus {
+  border-color: var(--orange);
+}
+
+.reimb-track-input-wrap input::placeholder {
+  color: var(--muted-dark);
+}
+
+.reimb-track-result {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.reimb-track-status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.reimb-track-status-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.reimb-track-status.submitted .reimb-track-status-icon { background: rgba(59,130,246,0.12); color: #3b82f6; }
+.reimb-track-status.processing .reimb-track-status-icon { background: rgba(234,179,8,0.12); color: #eab308; }
+.reimb-track-status.approved .reimb-track-status-icon  { background: rgba(34,197,94,0.12);  color: #22c55e; }
+.reimb-track-status.rejected .reimb-track-status-icon  { background: rgba(239,68,68,0.12);  color: #ef4444; }
+
+.reimb-track-status-ref {
+  font-size: 11px;
+  color: var(--muted-dark);
+  margin-bottom: 2px;
+}
+
+.reimb-track-status-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.reimb-track-status-msg {
+  font-size: 12px;
+  color: var(--muted-dark);
+  margin-top: 2px;
+}
+
+.reimb-track-not-found {
+  font-size: 13px;
+  color: rgba(239,68,68,0.9);
+  padding: 12px 16px;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+  .reimb-track-card {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .reimb-track-form {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .reimb-track-input-wrap { min-width: 100%; }
+}
+
+
+/* ==============================
+   DOCUMENTS REQUIRED SECTION
+   ============================== */
+.reimb-docs-section {
+  background: #111;
+  padding: 72px 0;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.reimb-docs-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.reimb-docs-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(24px, 4vw, 34px);
+  color: #fff;
+  margin: 12px 0 8px;
+}
+
+.reimb-docs-desc {
+  font-size: 15px;
+  color: var(--muted-dark);
+}
+
+.reimb-docs-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .reimb-docs-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reimb-docs-cat {
+  background: #161616;
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  padding: 24px 22px;
+}
+
+.reimb-docs-cat-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.reimb-blue   { background: rgba(59,130,246,0.12);  color: #3b82f6; }
+.reimb-green  { background: rgba(34,197,94,0.12);   color: #22c55e; }
+.reimb-orange { background: var(--orange-dim); color: var(--orange); }
+
+.reimb-docs-cat-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.reimb-docs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reimb-docs-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+
+.reimb-docs-list li i {
+  color: var(--orange);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+
+/* ==============================
+   FAQ
+   ============================== */
+.reimb-faq-section {
+  padding: 72px 0;
+}
+
+.reimb-faq-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.reimb-faq-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(22px, 4vw, 32px);
+  color: #fff;
+  margin: 12px 0 0;
+}
+
+.reimb-faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reimb-faq-item {
+  background: #161616;
+  border: 1px solid var(--border-dark);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.reimb-faq-item.open {
+  border-color: rgba(242,92,8,0.35);
+}
+
+.reimb-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.reimb-faq-q i {
+  font-size: 13px;
+  color: var(--muted-dark);
+  transition: transform 0.25s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.reimb-faq-item.open .reimb-faq-q i {
+  transform: rotate(180deg);
+  color: var(--orange);
+}
+
+.reimb-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s;
+  font-size: 14px;
+  color: var(--muted-dark);
+  line-height: 1.65;
+  padding: 0 20px;
+}
+
+.reimb-faq-item.open .reimb-faq-a {
+  max-height: 300px;
+  padding: 0 20px 18px;
+}
+
+.reimb-faq-a a {
+  color: var(--orange);
+}
+
+
+/* ==============================
+   HELP BANNER
+   ============================== */
+.reimb-help-banner {
+  padding: 0 0 72px;
+}
+
+.reimb-help-inner {
+  background: linear-gradient(120deg, #1a0c04 0%, #1c1208 50%, #111 100%);
+  border: 1px solid rgba(242,92,8,0.25);
+  border-radius: 20px;
+  padding: 36px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.reimb-help-icon {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  background: var(--orange-dim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.reimb-help-text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.reimb-help-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.reimb-help-sub {
+  font-size: 13px;
+  color: var(--muted-dark);
+  line-height: 1.5;
+}
+
+.reimb-help-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .reimb-help-inner {
+    padding: 24px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
